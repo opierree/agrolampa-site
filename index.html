@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agro Lampa Business — O canal de mídia do agro de São Carlos</title>
+<meta name="description" content="O Agro Lampa divulga empresas de São Carlos e região com vídeo, anúncio e presença no @agrolampa. Conheça os parceiros e fale com a gente pelo WhatsApp.">
+<meta property="og:title" content="Agro Lampa Business — O canal de mídia do agro de São Carlos">
+<meta property="og:description" content="Vídeo, anúncio e presença no @agrolampa para empresas de São Carlos e região.">
+<meta property="og:url" content="https://www.agrolampa.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.agrolampa.com.br/img/logo.png">
+<link rel="canonical" href="https://www.agrolampa.com.br/">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sites-incriveis.css">
+<script src="sites-incriveis.js" defer></script>
+<style>
+:root{
+  --creme:#f1efdf; --branco:#ffffff; --floresta:#13391f; --folha:#276d14;
+  --ouro:#bc8b42; --ouro-claro:#f1e2c2; --tinta:#1f2420; --tinta-suave:#55594f;
+  --sage:#e6ecd5; --pessego:#fceace; --trigo:#efe4c8; --osso:#efefef; --musgo:#c3cda7;
+  --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --max:1200px; --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--creme);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.rotulo{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.012em;line-height:1.06}
+h2{font-size:clamp(36px,5vw,56px)}
+.lead{font-size:18px;line-height:1.55;max-width:60ch}
+
+/* Botões em pílula */
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:100px;padding:14px 26px;font:600 15px/1 var(--sans);letter-spacing:.025em;text-decoration:none;transition:background .25s ease,color .25s ease,transform .25s ease;min-height:48px}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+.btn-folha{background:var(--folha);color:var(--branco)}
+.btn-folha:hover{background:#1f5810}
+.btn-ouro{background:var(--ouro);color:var(--floresta)}
+.btn-ouro:hover{background:#d39f52}
+.btn-fantasma{border:1px solid currentColor;color:var(--branco)}
+.btn-fantasma:hover{background:rgba(255,255,255,.12)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* Faixa de anúncio */
+.faixa{background:var(--ouro-claro);color:var(--floresta);overflow:hidden;height:36px;display:flex;align-items:center}
+.faixa-trilha{display:flex;gap:40px;white-space:nowrap;animation:correr 38s linear infinite;font-size:13px;font-weight:500;letter-spacing:.04em}
+.faixa-trilha span{display:inline-flex;align-items:center;gap:40px}
+.faixa-trilha span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ouro)}
+@keyframes correr{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.faixa-trilha{animation:none}}
+
+/* Cabeçalho */
+.topo{background:var(--floresta);color:var(--branco)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca img{height:48px;width:auto}
+.marca span{font-family:var(--serif);font-size:20px;line-height:1}
+.marca small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-top:4px}
+.menu{display:flex;gap:28px;list-style:none}
+.menu a{text-decoration:none;font-size:15px;opacity:.9}
+.menu a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+.topo .btn{padding:10px 20px;min-height:42px;font-size:14px;background:var(--creme);color:var(--floresta)}
+@media (max-width:860px){.menu{display:none}.marca span{display:none}}
+
+/* Cena 1 — Abertura */
+.abertura{position:relative;min-height:calc(100vh - 112px);min-height:calc(100svh - 112px);display:flex;align-items:flex-end;overflow:hidden;color:var(--branco);background:#5d6b3a}
+.abertura-foto{position:absolute;inset:-12% 0 -12% 0;width:100%;height:124%;object-fit:cover;background:#7a8550}
+.abertura::after{content:"";position:absolute;left:0;right:0;bottom:0;height:75%;background:linear-gradient(to top,rgba(10,30,14,.78),rgba(10,30,14,0));pointer-events:none}
+.abertura .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,8vh,88px)}
+.abertura .rotulo{color:var(--ouro-claro);margin-bottom:20px}
+.abertura h1{font-size:clamp(44px,7.2vw,92px);max-width:13ch;line-height:1.02;font-weight:300}
+.abertura p{font-size:18px;max-width:46ch;margin:24px 0 32px;color:rgba(255,255,255,.9)}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Cena 2 — O que é */
+.oque{background:var(--floresta);color:var(--branco);padding:clamp(72px,11vw,128px) 0}
+.oque-grade{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+.oque .rotulo{color:var(--ouro)}
+.oque h2{margin:16px 0 24px;max-width:16ch}
+.oque .lead{color:rgba(255,255,255,.82)}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.pilar{border-top:1px solid rgba(241,239,223,.25);padding-top:24px}
+.pilar-icone{width:44px;height:44px;border-radius:50%;border:1px solid var(--ouro);display:grid;place-items:center;margin-bottom:18px;color:var(--ouro)}
+.pilar-icone svg{width:20px;height:20px}
+.pilar h3{font-size:24px;margin-bottom:10px;font-weight:400}
+.pilar p{font-size:15px;color:rgba(255,255,255,.78)}
+.oque-foto{border-radius:30px;overflow:hidden;aspect-ratio:4/5;background:#2f5a2a}
+.oque-foto img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.oque-grade{grid-template-columns:1fr}.oque-foto{aspect-ratio:16/10}.pilares{grid-template-columns:1fr;gap:8px;margin-top:40px}}
+
+/* Cena 3 — PICO: o amanhecer dos parceiros */
+.amanhecer .fx-palco{display:block;
+  background:linear-gradient(to bottom,
+    color-mix(in oklab, #f3d39a calc(var(--ceu,0)*100%), #1b2a20) 0%,
+    color-mix(in oklab, #f9ecd0 calc(var(--ceu,0)*100%), #2f3a26) 55%,
+    color-mix(in oklab, #f1efdf calc(var(--ceu,0)*100%), #4a4a30) 100%)}
+.amanhecer .wrap{position:relative;z-index:3;padding-top:clamp(28px,7vh,72px)}
+.amanhecer .rotulo{color:var(--ouro-claro);transition:color .5s ease}
+.amanhecer.dia .rotulo{color:var(--folha)}
+.amanhecer h2{max-width:15ch;color:var(--creme);transition:color .5s ease;margin-top:12px;font-size:clamp(34px,4.6vw,58px)}
+.contador{margin-top:16px;font-size:15px;font-variant-numeric:tabular-nums;color:var(--creme);transition:color .5s ease}
+.amanhecer.dia h2{color:var(--floresta)}
+.amanhecer.dia .contador{color:var(--tinta-suave)}
+.contador strong{font-weight:600}
+.sol{position:absolute;z-index:1;left:58%;bottom:34%;width:clamp(180px,24vw,320px);transform:translate(-50%, calc(max(0, 1 - var(--progresso,0) / 0.7) * 40vh));color:var(--ouro)}
+.campo{position:absolute;z-index:2;left:0;right:0;bottom:0;height:46%}
+.campo svg{position:absolute;inset:0;width:100%;height:100%}
+.parceiros{position:absolute;z-index:3;left:0;right:0;bottom:0;height:46%;display:flex;align-items:center}
+.parceiros ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+.parceiro{display:flex;align-items:center;gap:14px;background:var(--creme);border-radius:20px;padding:14px 18px;opacity:0;transform:translateY(24px) scale(.96);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.parceiro.nasceu{opacity:1;transform:none}
+.parceiro .selo{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:500 16px/1 var(--serif);color:var(--floresta)}
+.parceiro:nth-child(3n+1) .selo{background:var(--sage)}
+.parceiro:nth-child(3n+2) .selo{background:var(--pessego)}
+.parceiro:nth-child(3n+3) .selo{background:var(--trigo)}
+.parceiro .selo-img{flex:none;width:44px;height:44px;border-radius:12px;object-fit:cover}
+.parceiro>span:nth-child(2){flex:1;min-width:0}
+.contatos{display:flex;gap:6px;flex:none}
+.contatos a{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--sage);color:var(--floresta);transition:background .2s ease}
+.contatos a:hover{background:var(--musgo)}
+.contatos a:focus-visible{outline:2px solid var(--folha);outline-offset:2px}
+.contatos svg{width:16px;height:16px}
+.parceiro b{display:block;font-size:15px;font-weight:600;line-height:1.25}
+.parceiro small{display:block;font-size:13px;color:var(--tinta-suave);line-height:1.3;margin-top:2px}
+@media (max-width:760px){
+  .campo,.parceiros{height:58%}
+  .sol{bottom:48%;left:70%}
+  .parceiros ol{gap:8px;padding-bottom:64px}
+  .parceiro{flex-direction:column;align-items:flex-start;gap:8px;padding:12px;border-radius:16px}
+  .parceiro .selo,.parceiro .selo-img{width:32px;height:32px;font-size:13px}
+  .parceiro .selo-img{border-radius:9px}
+  .contatos a{width:28px;height:28px}
+  .contatos svg{width:14px;height:14px}
+  .parceiro b{font-size:13px}
+  .parceiro small{font-size:11px}
+}
+.fx-reduzido .amanhecer{--progresso:1;--ceu:1}
+.fx-reduzido .amanhecer .fx-palco{min-height:100vh;position:relative}
+.fx-reduzido .parceiro{opacity:1;transform:none}
+
+/* Cena 4 — Como funciona (trilho) */
+.como .fx-palco{flex-direction:column;align-items:stretch;justify-content:center;gap:40px}
+.como-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.como-topo .rotulo{color:var(--folha)}
+.como-topo h2{margin-top:12px;max-width:14ch}
+.como-topo p{max-width:38ch;color:var(--tinta-suave)}
+.como-trilho-janela{overflow:visible;padding-left:max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter)))}
+.como [data-fx="trilho"]{gap:20px}
+.etapa-card:last-child{margin-right:var(--gutter)}
+.etapa-card{flex:none;width:clamp(280px,32vw,400px);min-height:340px;border-radius:30px;padding:32px;display:flex;flex-direction:column;justify-content:space-between}
+.etapa-card:nth-child(1){background:var(--sage)}
+.etapa-card:nth-child(2){background:var(--pessego)}
+.etapa-card:nth-child(3){background:var(--trigo)}
+.etapa-card:nth-child(4){background:var(--branco)}
+.etapa-num{font-family:var(--serif);font-size:56px;font-weight:300;color:var(--folha);line-height:1}
+.etapa-card h3{font-size:28px;margin:24px 0 12px;font-weight:400}
+.etapa-card p{font-size:16px;color:var(--tinta-suave)}
+.fx-reduzido .como-trilho-janela{padding:0 var(--gutter)}
+.fx-reduzido .como [data-fx="trilho"]{gap:16px}
+.fx-reduzido .como .fx-palco{padding:80px 0}
+
+/* Cena 5 — Mercado */
+.mercado{padding:clamp(80px,11vw,128px) 0}
+.mercado-grade{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,72px);align-items:start}
+.mercado .rotulo{color:var(--folha)}
+.mercado h2{margin:12px 0 20px}
+.mercado .lead{color:var(--tinta-suave)}
+.mercado-foto{margin-top:40px;border-radius:30px;overflow:hidden;aspect-ratio:5/4;background:var(--musgo)}
+.mercado-foto img{width:100%;height:100%;object-fit:cover}
+.fontes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fonte{display:flex;flex-direction:column;justify-content:space-between;min-height:220px;border-radius:20px;padding:28px;text-decoration:none;transition:transform .3s ease}
+.fonte:hover{transform:translateY(-3px)}
+.fonte:focus-visible{outline:3px solid var(--folha);outline-offset:3px}
+.fonte:nth-child(1){background:var(--sage)}
+.fonte:nth-child(2){background:var(--pessego)}
+.fonte:nth-child(3){background:var(--trigo)}
+.fonte:nth-child(4){background:var(--branco)}
+.fonte .rotulo{color:var(--tinta-suave);font-size:12px}
+.fonte h3{font-size:26px;margin:10px 0 8px;font-weight:400}
+.fonte p{font-size:15px;color:var(--tinta-suave)}
+.fonte .ir{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--folha);margin-top:20px}
+@media (max-width:900px){.mercado-grade{grid-template-columns:1fr}.mercado-foto{display:none}}
+@media (max-width:560px){.fontes{grid-template-columns:1fr}.fonte{min-height:0}}
+
+/* Cena 6 — Fechamento */
+.fechamento{background:var(--floresta);color:var(--branco);padding:clamp(88px,12vw,144px) 0 clamp(64px,8vw,96px)}
+.fechamento-grade{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,6vw,80px);align-items:end}
+.fechamento .rotulo{color:var(--ouro)}
+.fechamento h2{font-size:clamp(40px,6vw,76px);margin:16px 0 28px;max-width:14ch}
+.fechamento .lead{color:rgba(255,255,255,.82);margin-bottom:36px}
+.plano{background:var(--creme);color:var(--tinta);border-radius:30px;padding:36px}
+.plano .rotulo{color:var(--folha)}
+.plano h3{font-size:32px;margin:10px 0 6px;font-weight:400}
+.plano .preco{font-size:15px;color:var(--tinta-suave)}
+.plano ul{list-style:none;margin:24px 0 0;display:grid;gap:12px}
+.plano li{display:flex;gap:12px;font-size:15px;align-items:flex-start}
+.plano li svg{flex:none;width:18px;height:18px;color:var(--folha);margin-top:2px}
+@media (max-width:900px){.fechamento-grade{grid-template-columns:1fr}}
+
+.rodape{background:var(--floresta);color:rgba(255,255,255,.8);border-top:1px solid rgba(241,239,223,.15);padding:48px 0 40px;font-size:14px}
+.rodape .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;align-items:start}
+.rodape img{height:72px;width:auto;margin-bottom:16px}
+.rodape h4{font:500 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ouro);margin-bottom:14px}
+.rodape ul{list-style:none;display:grid;gap:8px}
+.rodape a{text-decoration:none}
+.rodape a:hover{text-decoration:underline}
+.rodape .base{grid-column:1/-1;border-top:1px solid rgba(241,239,223,.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.6)}
+@media (max-width:760px){.rodape .wrap{grid-template-columns:1fr}}
+
+/* Botão fixo de WhatsApp no celular */
+.zap-fixo{position:fixed;right:16px;bottom:16px;z-index:50;width:56px;height:56px;border-radius:50%;background:var(--folha);color:#fff;display:none;place-items:center}
+.zap-fixo svg{width:26px;height:26px}
+@media (max-width:760px){.zap-fixo{display:grid}}
+</style>
+</head>
+<body>
+
+<div class="faixa" aria-hidden="true">
+  <div class="faixa-trilha">
+    <span>O canal de mídia do agro de São Carlos</span><span>Vídeo, anúncio e presença no @agrolampa</span><span>9 empresas parceiras</span><span>Fale com a gente pelo WhatsApp</span>
+    <span>O canal de mídia do agro de São Carlos</span><span>Vídeo, anúncio e presença no @agrolampa</span><span>9 empresas parceiras</span><span>Fale com a gente pelo WhatsApp</span>
+  </div>
+</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Agro Lampa Business — início">
+      <img src="img/logo-creme.png" alt="" width="62" height="48">
+      <span>Agro Lampa<small>Business</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="#o-que-e">O que é</a></li>
+        <li><a href="#parceiros">Parceiros</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#mercado">Mercado</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener">Fale conosco</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- CENA 1 — ABERTURA -->
+<section class="abertura">
+  <img class="abertura-foto" data-fx-paralaxe="0.15" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?fm=jpg&q=80&w=2400&auto=format&fit=crop" alt="Campo de trigo dourado ao entardecer">
+  <div class="wrap">
+    <p class="rotulo" data-fx="surgir">São Carlos e região · @agrolampa</p>
+    <h1 data-fx="palavras">O agro de São Carlos tem um lugar para aparecer.</h1>
+    <p data-fx="subir" data-fx-atraso="500">O Agro Lampa é o canal de mídia que coloca empresas locais na frente do produtor rural, com vídeo, anúncio e presença no Instagram.</p>
+    <div class="acoes" data-fx="subir" data-fx-atraso="700">
+      <a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20ser%20parceiro%20do%20Agro%20Lampa." target="_blank" rel="noopener">Quero ser parceiro</a>
+      <a class="btn btn-fantasma" href="#parceiros">Ver os parceiros</a>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 2 — O QUE É -->
+<section class="oque" id="o-que-e">
+  <div class="wrap">
+    <div class="oque-grade">
+      <div>
+        <p class="rotulo" data-fx="surgir">O que é o Agro Lampa</p>
+        <h2 data-fx="subir">Um canal de mídia feito para as empresas daqui.</h2>
+        <p class="lead" data-fx="subir" data-fx-atraso="150">O @agrolampa divulga as empresas parceiras para quem vive e compra no campo. Você cuida do seu negócio; a gente grava, publica e anuncia.</p>
+      </div>
+      <div class="oque-foto" data-fx="direita">
+        <img src="https://images.unsplash.com/photo-1719254271334-4601cbafc38c?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Lavoura vista de perto" loading="lazy">
+      </div>
+    </div>
+    <div class="pilares">
+      <div class="pilar" data-fx="subir">
+        <div class="pilar-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></div>
+        <h3>Vídeo</h3>
+        <p>Gravamos a história, os produtos e as promoções da sua empresa, no seu espaço.</p>
+      </div>
+      <div class="pilar" data-fx="subir" data-fx-atraso="120">
+        <div class="pilar-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10v4h3l6 4V6L7 10H4Z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg></div>
+        <h3>Anúncio</h3>
+        <p>Campanhas pagas para o público de São Carlos, com contato direto para você.</p>
+      </div>
+      <div class="pilar" data-fx="subir" data-fx-atraso="240">
+        <div class="pilar-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></div>
+        <h3>Presença</h3>
+        <p>Sua marca no @agrolampa e aqui no site, em posts e collabs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 3 — PICO: O AMANHECER DOS PARCEIROS -->
+<section class="amanhecer" id="parceiros" data-fx-fixa data-fx-altura="5" aria-label="Empresas parceiras">
+  <div class="fx-palco">
+    <div class="wrap">
+      <p class="rotulo">Parceiros fundadores</p>
+      <h2>O dia começa com quem já está no campo.</h2>
+      <p class="contador" aria-hidden="true"><strong id="contagem">0</strong> de 9 empresas parceiras</p>
+    </div>
+
+    <!-- Movimento-assinatura: o sol do logo nasce com a rolagem -->
+    <svg class="sol" viewBox="0 0 200 120" aria-hidden="true">
+      <g stroke="currentColor" stroke-width="7" stroke-linecap="round">
+        <line x1="100" y1="8" x2="100" y2="30"/><line x1="58" y1="20" x2="68" y2="40"/><line x1="142" y1="20" x2="132" y2="40"/>
+        <line x1="26" y1="48" x2="44" y2="60"/><line x1="174" y1="48" x2="156" y2="60"/>
+      </g>
+      <path d="M40 112a60 60 0 0 1 120 0Z" fill="currentColor"/>
+    </svg>
+
+    <div class="campo" aria-hidden="true">
+      <svg viewBox="0 0 1440 400" preserveAspectRatio="none">
+        <path d="M0 90C220 30 420 40 640 80s460 70 800 0V400H0Z" fill="#3c7f22"/>
+        <path d="M0 150c260-60 520-40 780 10s440 40 660-10V400H0Z" fill="#2f7419"/>
+        <path d="M0 220c300-50 620-30 900 10s380 20 540-10V400H0Z" fill="#276d14"/>
+      </svg>
+    </div>
+
+    <div class="parceiros">
+      <div class="wrap" style="width:100%">
+        <!-- Logos dos parceiros: substituir cada .selo por <img> quando chegarem -->
+        <ol>
+          <li class="parceiro"><img class="selo-img" src="img/parceiros/comercial-dourado.jpg" alt="Logo Comercial Dourado" width="44" height="44" loading="lazy"><span><b>Comercial Dourado</b><small>Materiais de construção</small></span><span class="contatos"><a href="https://wa.me/5516996286301?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="WhatsApp da Comercial Dourado"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg></a><a href="https://instagram.com/comercialdourado_" target="_blank" rel="noopener" aria-label="Instagram da Comercial Dourado"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a></span></li>
+          <li class="parceiro"><img class="selo-img" src="img/parceiros/pallone-motors.jpg" alt="Logo Pallone Motors" width="44" height="44" loading="lazy"><span><b>Pallone Motors</b><small>Veículos e oficina</small></span><span class="contatos"><a href="https://wa.me/5516996125200?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="WhatsApp da Pallone Motors"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg></a><a href="https://instagram.com/pallonemotors" target="_blank" rel="noopener" aria-label="Instagram da Pallone Motors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a></span></li>
+          <li class="parceiro"><img class="selo-img" src="img/parceiros/lb-seguros.jpg" alt="Logo LB Seguros" width="44" height="44" loading="lazy"><span><b>L.B. Seguros</b><small>Administradora e corretora</small></span><span class="contatos"><a href="https://wa.me/5516996165701?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="WhatsApp da L.B. Seguros"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg></a></span></li>
+          <li class="parceiro"><img class="selo-img" src="img/parceiros/tc-construtora.jpg" alt="Logo TC Construtora" width="44" height="44" loading="lazy"><span><b>TC Construtora</b><small>Construção de edifícios</small></span><span class="contatos"><a href="https://wa.me/5516991946536?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="WhatsApp da TC Construtora"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg></a><a href="https://instagram.com/tcconstrutora.sc" target="_blank" rel="noopener" aria-label="Instagram da TC Construtora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a></span></li>
+          <li class="parceiro"><span class="selo" aria-hidden="true">AL</span><span><b>Agropecuária Lisboa</b><small>Rações, veterinária e pet</small></span></li>
+          <li class="parceiro"><span class="selo" aria-hidden="true">FS</span><span><b>Flora Souza</b><small>Paisagismo e jardinagem</small></span></li>
+          <li class="parceiro"><span class="selo" aria-hidden="true">CL</span><span><b>Café Landgraf</b><small>Fazenda Invernada</small></span></li>
+          <li class="parceiro"><span class="selo" aria-hidden="true">OM</span><span><b>OM Baterias</b><small>Baterias automotivas</small></span></li>
+          <li class="parceiro"><img class="selo-img" src="img/parceiros/bar-do-lampa.jpg" alt="Logo Cervejaria Bar do Lampa" width="44" height="44" loading="lazy"><span><b>Bar do Lampa</b><small>Cervejaria e depósito</small></span><span class="contatos"><a href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="WhatsApp do Bar do Lampa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg></a><a href="https://instagram.com/bardolampa" target="_blank" rel="noopener" aria-label="Instagram do Bar do Lampa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a></span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 4 — COMO FUNCIONA -->
+<section class="como" id="como-funciona" data-fx-fixa data-fx-altura="3">
+  <div class="fx-palco">
+    <div class="wrap" style="width:100%">
+      <div class="como-topo">
+        <div>
+          <p class="rotulo">Como funciona</p>
+          <h2>Do primeiro café ao anúncio no ar.</h2>
+        </div>
+        <p>Quatro etapas, feitas por nós, para cada empresa parceira.</p>
+      </div>
+    </div>
+    <div class="como-trilho-janela">
+      <div data-fx="trilho">
+        <article class="etapa-card"><span class="etapa-num">01</span><div><h3>Conversa e pesquisa</h3><p>Entendemos quem é o seu cliente e o que você quer alcançar, antes de gravar ou anunciar.</p></div></article>
+        <article class="etapa-card"><span class="etapa-num">02</span><div><h3>Gravação no local</h3><p>Vamos até a sua empresa e gravamos a história, o espaço e as ofertas, com equipamento próprio.</p></div></article>
+        <article class="etapa-card"><span class="etapa-num">03</span><div><h3>Publicação e anúncios</h3><p>Os vídeos entram no @agrolampa em collab, e as campanhas levam o cliente direto para o seu contato.</p></div></article>
+        <article class="etapa-card"><span class="etapa-num">04</span><div><h3>Acompanhamento</h3><p>Acompanhamos os resultados com você e ajustamos o que for preciso, mês a mês.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 5 — MERCADO -->
+<section class="mercado" id="mercado">
+  <div class="wrap mercado-grade">
+    <div>
+      <p class="rotulo" data-fx="surgir">Mercado e notícias</p>
+      <h2 data-fx="subir">Cotações e notícias, direto da fonte.</h2>
+      <p class="lead" data-fx="subir" data-fx-atraso="120">Para acompanhar o dia a dia do campo, reunimos as fontes de referência do agro brasileiro.</p>
+      <div class="mercado-foto" data-fx="esquerda">
+        <img src="https://images.unsplash.com/photo-1566310203664-bb0828838943?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Gado no pasto" loading="lazy">
+      </div>
+    </div>
+    <div class="fontes">
+      <a class="fonte" data-fx="crescer" href="https://www.cepea.esalq.usp.br/br" target="_blank" rel="noopener">
+        <div><p class="rotulo">Cotações</p><h3>CEPEA / Esalq-USP</h3><p>Indicadores de preço de soja, milho, boi gordo, café e mais.</p></div>
+        <span class="ir">Abrir site ↗</span>
+      </a>
+      <a class="fonte" data-fx="crescer" data-fx-atraso="100" href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank" rel="noopener">
+        <div><p class="rotulo">Cotações</p><h3>Notícias Agrícolas</h3><p>Cotações do dia por produto e por praça.</p></div>
+        <span class="ir">Abrir site ↗</span>
+      </a>
+      <a class="fonte" data-fx="crescer" data-fx-atraso="200" href="https://www.canalrural.com.br/" target="_blank" rel="noopener">
+        <div><p class="rotulo">Notícias</p><h3>Canal Rural</h3><p>As principais notícias do agronegócio.</p></div>
+        <span class="ir">Abrir site ↗</span>
+      </a>
+      <a class="fonte" data-fx="crescer" data-fx-atraso="300" href="https://www.embrapa.br/" target="_blank" rel="noopener">
+        <div><p class="rotulo">Pesquisa</p><h3>Embrapa</h3><p>Pesquisa e tecnologia para o produtor rural.</p></div>
+        <span class="ir">Abrir site ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 6 — FECHAMENTO -->
+<section class="fechamento" id="contato">
+  <div class="wrap fechamento-grade">
+    <div>
+      <p class="rotulo" data-fx="surgir">Seja parceiro</p>
+      <h2 data-fx="palavras">Seu negócio na frente do produtor de São Carlos.</h2>
+      <p class="lead" data-fx="subir">Com vídeo e anúncio feitos para você. Chame no WhatsApp e montamos a proposta da sua empresa.</p>
+      <div data-fx="subir" data-fx-atraso="150">
+        <a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20uma%20proposta%20para%20ser%20parceiro%20do%20Agro%20Lampa." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="plano" data-fx="direita">
+      <p class="rotulo">Plano Premium 360</p>
+      <h3>Acompanhamento completo</h3>
+      <p class="preco">Investimento sob consulta</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>Vídeos promocionais da sua empresa</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>Posts e collabs no @agrolampa</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>Anúncios com contato direto para você</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>Página da sua empresa neste site</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>Acompanhamento mensal dos resultados</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <img src="img/logo-creme.png" alt="Agro Lampa Business" width="93" height="72">
+      <p>O canal de mídia do agro de São Carlos e região.</p>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5516991787430" target="_blank" rel="noopener">WhatsApp (16) 99178-7430</a></li>
+        <li><a href="https://instagram.com/agrolampa" target="_blank" rel="noopener">Instagram @agrolampa</a></li>
+        <li>São Carlos/SP</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Navegue</h4>
+      <ul>
+        <li><a href="#o-que-e">O que é</a></li>
+        <li><a href="#parceiros">Parceiros</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#mercado">Mercado</a></li>
+      </ul>
+    </div>
+    <div class="base">
+      <span>© 2026 Agro Lampa Business · CNPJ 55.681.818/0001-09</span>
+      <span>São Carlos/SP</span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap-fixo" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.2Z"/></svg>
+</a>
+
+<script>
+/* Movimento-assinatura: cada parte do "dia" revela um parceiro */
+(function(){
+  var cena=document.querySelector('.amanhecer');
+  var cards=[].slice.call(cena.querySelectorAll('.parceiro'));
+  var contagem=document.getElementById('contagem');
+  var reduzido=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mostrar(n){
+    cards.forEach(function(c,i){c.classList.toggle('nasceu',i<n)});
+    contagem.textContent=n;
+  }
+  if(reduzido){mostrar(cards.length);cena.classList.add('dia');return}
+  var pedido=false;
+  function atualizar(){
+    pedido=false;
+    var p=parseFloat(getComputedStyle(cena).getPropertyValue('--progresso'))||0;
+    var n=Math.max(0,Math.min(cards.length,Math.floor((p-0.1)/0.75*cards.length)+1));
+    if(p<0.1)n=0;
+    mostrar(n);
+    var ceu=Math.max(0,Math.min(1,(p-0.25)/0.35));
+    cena.style.setProperty('--ceu',ceu.toFixed(3));
+    cena.classList.toggle('dia',ceu>0.5);
+  }
+  addEventListener('scroll',function(){if(!pedido){pedido=true;requestAnimationFrame(atualizar)}},{passive:true});
+  addEventListener('load',atualizar);
+})();
+</script>
+</body>
+</html>
