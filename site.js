@@ -41,24 +41,24 @@
     else if(p.tel)h='<a class="btn btn-folha" href="tel:'+p.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(p.telTxt)+'</a>';
     else h='<a class="btn btn-folha" href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Pedir contato</a>';
     if(p.insta)h+='<a class="btn btn-linha redondo" href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener" aria-label="Instagram de '+esc(p.nome)+'"><svg class="icone"><use href="#i-insta"/></svg></a>';
-    return '<div class="p-acoes">'+h+'<button class="btn btn-linha" type="button" data-abrir="f-'+p.id+'">Ver detalhes</button></div>';
+    return '<div class="p-acoes">'+h+'<a class="btn btn-linha" href="parceiro.html?p='+p.id+'">Ver página<svg class="icone"><use href="#i-seta"/></svg></a></div>';
   }
   function chips(p){return '<ul class="chips">'+p.servicos.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul>'}
   function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'">'+(p.foto?'<img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt||'')+'" loading="lazy" onerror="this.remove()">':'')+selos(p)+'</div>'}
   function cartao(p){
     return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'">'+foto(p)+logoBox(p,'p-logo')+
-      '<div class="p-corpo"><span class="p-cat">'+esc(cat(p.cat).nome)+'</span><h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.seg)+'</p><p class="p-resumo">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+      '<div class="p-corpo"><span class="p-cat">'+esc(cat(p.cat).nome)+'</span><h4><a class="p-nome" href="parceiro.html?p='+p.id+'">'+esc(p.nome)+'</a></h4><p class="p-seg">'+esc(p.seg)+'</p><p class="p-resumo">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
   }
   function cartaoGrande(p){
     return '<article class="destaque-card">'+foto(p)+'<div class="p-corpo">'+logoBox(p,'p-logo')+
-      '<h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+      '<h4><a class="p-nome" href="parceiro.html?p='+p.id+'">'+esc(p.nome)+'</a></h4><p class="p-seg">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
   }
 
   /* Faixa de patrocinadores: premium + destaque; enquanto não houver, todos */
   var trilha=$('faixa-trilha');
   if(trilha){
     var faixa=ordem.filter(function(p){return p.plano!=='parceiro'});if(!faixa.length)faixa=ordem.filter(function(p){return p.logo});
-    var item=function(p,oculto){return '<a class="faixa-item" href="servicos.html#'+p.cat+'"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'>'+miniLogo(p)+'<span><b>'+esc(p.nome)+'</b><small>'+esc(cat(p.cat).nome)+'</small></span></a>'};
+    var item=function(p,oculto){return '<a class="faixa-item" href="parceiro.html?p='+p.id+'"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'>'+miniLogo(p)+'<span><b>'+esc(p.nome)+'</b><small>'+esc(cat(p.cat).nome)+'</small></span></a>'};
     var seq=faixa.slice();while(seq.length<6)seq=seq.concat(faixa);
     trilha.innerHTML=seq.map(function(p,i){return item(p,i>=faixa.length)}).join('')+seq.map(function(p){return item(p,true)}).join('');
   }
@@ -144,6 +144,73 @@
       var d2=e.target.closest('dialog.ficha');
       if(d2&&(e.target===d2||e.target.closest('[data-fechar]')))d2.close();
     });
+  }
+
+
+  /* ===== Página de cada parceiro: parceiro.html?p=ID ===== */
+  var pag=$('pagina-parceiro');
+  if(pag){
+    var pid=(new URLSearchParams(location.search).get('p')||'').toLowerCase();
+    var P=null;PARCEIROS.forEach(function(x){if(x.id===pid)P=x});
+    if(!P){
+      pag.innerHTML='<div class="wrap pp-vazio"><h1>Empresa não encontrada</h1><p>Veja todas as empresas parceiras na página de serviços.</p><a class="btn btn-folha" href="servicos.html">Ver os serviços</a></div>';
+    }else{
+      document.title=P.nome+' — Agro Lampa Business';
+      var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content',P.resumo);
+      var C=cat(P.cat);
+      var zapLink=P.whats?'https://wa.me/'+P.whats+MSG:null;
+      var pedir='https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+P.nome+'. Vi no site do Agro Lampa.');
+      var q=encodeURIComponent(P.nome+', '+(P.endereco||'São Carlos SP'));
+      var mapsUrl='https://www.google.com/maps/search/?api=1&query='+q+(P.placeId?'&query_place_id='+P.placeId:'');
+      var rotaUrl='https://www.google.com/maps/dir/?api=1&destination='+q+(P.placeId?'&destination_place_id='+P.placeId:'');
+      var temMapa=P.endereco&&!P.semMapa&&P.placeId;
+
+      var botaoPrincipal=P.whats?'<a class="btn btn-ouro" href="'+zapLink+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Chamar no WhatsApp</a>':
+        P.tel?'<a class="btn btn-ouro" href="tel:'+P.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(P.telTxt)+'</a>':
+        '<a class="btn btn-ouro" href="'+pedir+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Pedir contato</a>';
+
+      var contatos='';
+      if(P.whats)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+zapLink+'" target="_blank" rel="noopener">'+esc(P.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
+      if(P.tel)contatos+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+P.tel+'">'+esc(P.telTxt)+'</a><small>Telefone</small></div></li>';
+      if(P.email)contatos+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(P.email)+'">'+esc(P.email)+'</a><small>E-mail</small></div></li>';
+      if(P.insta)contatos+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(P.insta)+'" target="_blank" rel="noopener">@'+esc(P.insta)+'</a><small>Instagram</small></div></li>';
+      if(!P.whats&&!P.tel)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+pedir+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
+
+      var servicos='<ul class="pp-servicos">'+P.servicos.map(function(x){return '<li><span class="pp-ok"><svg class="icone"><use href="#i-ok"/></svg></span>'+esc(x)+'</li>'}).join('')+'</ul>';
+
+      var galeria=(P.galeria&&P.galeria.length)?'<section class="pp-bloco"><h2>Fotos</h2><div class="pp-galeria">'+P.galeria.map(function(g,i){return '<figure'+(i===0?' class="grande"':'')+'><img src="'+esc(g)+'" alt="Trabalho de '+esc(P.nome)+'" loading="lazy" onerror="this.parentNode.remove()"></figure>'}).join('')+'</div></section>':'';
+
+      var deps=(P.depoimentos||[]);
+      var avaliacoes='<section class="pp-bloco" id="avaliacoes"><h2>Avaliações</h2>'+
+        (deps.length?'<div class="pp-depos">'+deps.map(function(d){return '<blockquote><p>“'+esc(d.texto)+'”</p><cite>'+esc(d.nome)+'</cite></blockquote>'}).join('')+'</div>':
+          '<p class="pp-suave">Ainda não temos depoimentos de clientes publicados aqui.</p>')+
+        (P.placeId?'<div class="pp-acoes"><a class="btn btn-linha" href="'+mapsUrl+'" target="_blank" rel="noopener">Ver avaliações no Google<svg class="icone"><use href="#i-seta"/></svg></a><a class="btn btn-linha" href="https://search.google.com/local/writereview?placeid='+P.placeId+'" target="_blank" rel="noopener">Avaliar esta empresa</a></div>':'')+
+        '</section>';
+
+      var horario=(P.horario&&P.horario.length)?'<div class="pp-card"><h3>Horário</h3><ul class="pp-horario">'+P.horario.map(function(h){return '<li>'+esc(h)+'</li>'}).join('')+'</ul></div>':'';
+      var endereco=P.endereco?'<div class="pp-card"><h3>Endereço</h3><p>'+esc(P.endereco)+'</p>'+(temMapa?'<a class="pp-link" href="'+rotaUrl+'" target="_blank" rel="noopener">Como chegar<svg class="icone"><use href="#i-seta"/></svg></a>':'')+'</div>':'';
+
+      var mapa=temMapa?'<section class="pp-mapa"><div class="wrap"><h2>Localização</h2><div class="pp-mapa-moldura"><iframe title="Mapa: '+esc(P.nome)+'" src="https://www.google.com/maps?q='+q+'&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'+
+        '<div class="pp-mapa-rodape"><p>'+esc(P.endereco)+'</p><a class="btn btn-folha" href="'+rotaUrl+'" target="_blank" rel="noopener">Como chegar</a></div></div></section>':'';
+
+      var outros=ordem.filter(function(x){return x.cat===P.cat&&x.id!==P.id});
+      if(outros.length<2)outros=outros.concat(ordem.filter(function(x){return x.cat!==P.cat&&x.id!==P.id}).slice(0,3-outros.length));
+      var mais='<section class="pp-mais"><div class="wrap"><div class="titulo-bloco"><h2>Outras empresas parceiras</h2></div><div class="pp-mini">'+
+        outros.slice(0,3).map(function(x){return '<a class="pp-mini-card" href="parceiro.html?p='+x.id+'">'+miniLogo(x)+'<span><b>'+esc(x.nome)+'</b><small>'+esc(cat(x.cat).nome)+'</small></span></a>'}).join('')+
+        '</div><a class="btn btn-linha" href="servicos.html">Ver todas as empresas<svg class="icone"><use href="#i-seta"/></svg></a></div></section>';
+
+      pag.innerHTML=
+        '<section class="pp-topo" style="--tom:'+P.tom+'">'+(P.foto?'<img class="pp-capa" src="'+esc(P.foto)+'" alt="'+esc(P.fotoAlt||'')+'" onerror="this.remove()">':'')+
+          '<div class="wrap"><nav class="pp-trilha" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><a href="servicos.html">Serviços</a><span>/</span><a href="servicos.html#'+C.id+'">'+esc(C.nome)+'</a></nav>'+
+          '<div class="pp-id">'+logoBox(P,'pp-logo')+'<div><p class="pp-cat">'+esc(C.nome)+(P.seloTexto?' · '+esc(P.seloTexto):P.desde?' · Desde '+P.desde:'')+'</p><h1>'+esc(P.nome)+'</h1><p class="pp-seg">'+esc(P.seg)+'</p>'+
+          '<div class="pp-acoes">'+botaoPrincipal+(P.insta?'<a class="btn btn-claro" href="https://instagram.com/'+esc(P.insta)+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-insta"/></svg>Instagram</a>':'')+(temMapa?'<a class="btn btn-claro" href="'+rotaUrl+'" target="_blank" rel="noopener">Como chegar</a>':'')+'</div></div></div></div></section>'+
+        '<div class="wrap pp-grade"><div class="pp-principal">'+
+          '<section class="pp-bloco"><h2>Sobre</h2><p class="pp-texto">'+esc(P.resumo)+'</p></section>'+
+          '<section class="pp-bloco"><h2>Serviços</h2>'+servicos+'</section>'+galeria+avaliacoes+
+        '</div><aside class="pp-lado"><div class="pp-card"><h3>Contato</h3><ul class="contatos">'+contatos+'</ul></div>'+horario+endereco+
+          '<div class="pp-card pp-anuncio"><p>Esta empresa é parceira do <strong>Agro Lampa</strong>.</p><a class="pp-link" href="sobre.html#anuncie">Quero minha empresa aqui<svg class="icone"><use href="#i-seta"/></svg></a></div>'+
+        '</aside></div>'+mapa+mais;
+    }
   }
 
   /* Como funciona: a etapa no centro da tela troca a imagem */
