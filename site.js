@@ -173,6 +173,7 @@
       if(P.whats)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+zapLink+'" target="_blank" rel="noopener">'+esc(P.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
       if(P.tel)contatos+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+P.tel+'">'+esc(P.telTxt)+'</a><small>Telefone</small></div></li>';
       if(P.email)contatos+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(P.email)+'">'+esc(P.email)+'</a><small>E-mail</small></div></li>';
+      if(P.site)contatos+='<li><svg class="icone"><use href="#i-seta"/></svg><div><a href="'+esc(P.site)+'" target="_blank" rel="noopener">'+esc(P.site.replace(/^https?:\/\//,''))+'</a><small>Site</small></div></li>';
       if(P.insta)contatos+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(P.insta)+'" target="_blank" rel="noopener">@'+esc(P.insta)+'</a><small>Instagram</small></div></li>';
       if(!P.whats&&!P.tel)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+pedir+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
 

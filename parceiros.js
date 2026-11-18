@@ -121,8 +121,10 @@ var PARCEIROS = [
    servicos:["Fretes","Carretos"],
    tom:"#5a5a3a", foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Caixas de mudança",
    whats:"5516992835668", whatsTxt:"(16) 99283-5668"},
-  {id:"west", nome:"West Transportes", cat:"transporte", plano:"parceiro", pendente:true,
-   seg:"Transportes", resumo:"Transportes em São Carlos.",
-   servicos:["Transportes"],
-   tom:"#4a4a4a"}
+  {id:"west", nome:"West Transportes", cat:"transporte", plano:"parceiro", desde:2004,
+   seg:"Fretamento e transporte executivo", resumo:"West Transportes e Fretamento, de São Carlos, no mercado desde 2004. Transporte corporativo, fretamento, turismo, transfer de aeroporto e eventos em todo o estado de São Paulo, com foco no interior. Cadastrada no Cadastur e na ARTESP.",
+   servicos:["Fretamento para empresas","Transfer de aeroporto","Turismo e viagens em grupo","Transporte para eventos"],
+   endereco:"São Carlos/SP · atende todo o estado de SP", semMapa:true,
+   tom:"#1f2b3a", foto:"https://images.unsplash.com/photo-1570125909232-eb263c188f7e?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Ônibus de fretamento",
+   whats:"5516988127909", whatsTxt:"(16) 98812-7909", insta:"west.transportes", site:"https://westtransportes.com.br"}
 ];
