@@ -122,31 +122,6 @@ h2{font-size:clamp(36px,5.2vw,68px)}
 .fx-reduzido .amanhecer{--progresso:1}
 .fx-reduzido .amanhecer .fx-palco{min-height:92vh;position:relative}
 
-/* 4 — Parceiros no campo */
-.parceiros{background:var(--campo);color:var(--creme-texto);padding-block:clamp(24px,4vw,48px) clamp(88px,11vw,140px);margin-top:-1px}
-.grade-parceiros{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.parceiro{grid-column:span 2;background:var(--branco);color:var(--tinta);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 60px -36px rgba(0,0,0,.6);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
-.parceiro:hover{transform:translateY(-6px);box-shadow:0 40px 70px -34px rgba(0,0,0,.7)}
-.parceiro.grande{grid-column:span 3}
-.p-foto{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--tom,#8a9a58)}
-.p-foto>img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.parceiro:hover .p-foto>img{transform:scale(1.05)}
-.p-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),rgba(0,0,0,0) 55%)}
-.p-desde{position:absolute;z-index:1;top:16px;right:16px;background:rgba(255,255,255,.92);color:var(--floresta);font-size:13px;font-weight:600;padding:7px 12px;border-radius:100px;font-variant-numeric:tabular-nums}
-.p-logo{position:relative;z-index:2;margin:-96px 24px 0;width:212px;height:164px;border-radius:22px;background:var(--branco);display:grid;place-items:center;padding:12px;box-shadow:0 16px 36px -18px rgba(0,0,0,.45)}
-.p-logo img{width:100%;height:100%;object-fit:contain;min-height:0}
-.p-logo.cheio{padding:0;overflow:hidden}
-.p-logo.cheio img{width:100%;height:100%;object-fit:cover}
-.parceiro.grande .p-logo{width:260px;height:196px;margin-top:-116px}
-.p-corpo{padding:20px 24px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
-.p-corpo h3{font-size:clamp(24px,2.2vw,30px);letter-spacing:-.025em}
-.p-seg{color:var(--tinta-suave);font-size:15px}
-.p-acoes{display:flex;gap:10px;margin-top:auto;padding-top:18px;flex-wrap:wrap}
-.p-acoes .btn{min-height:46px;padding:12px 18px;font-size:14px}
-.p-acoes .redondo{width:46px;min-width:46px;padding:0}
-@media (max-width:1000px){.grade-parceiros{grid-template-columns:repeat(2,1fr)}.parceiro,.parceiro.grande{grid-column:span 1}.parceiro:last-child{grid-column:1/-1}}
-@media (max-width:620px){.grade-parceiros{grid-template-columns:1fr}.parceiro:last-child{grid-column:auto}.p-logo,.parceiro.grande .p-logo{width:190px;height:148px;margin-top:-84px}}
-
 /* Detalhes do parceiro */
 dialog.ficha{border:0;padding:0;border-radius:28px;width:min(640px,calc(100vw - 32px));max-height:calc(100svh - 32px);margin:auto;color:var(--tinta);background:var(--branco);box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
 dialog.ficha::backdrop{background:rgba(10,24,14,.55);backdrop-filter:blur(4px)}
@@ -155,6 +130,8 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .ficha-topo{display:flex;align-items:center;gap:20px;padding:28px 28px 0}
 .ficha-topo .p-logo{margin:0;width:132px;height:104px;box-shadow:none;border:1px solid var(--linha)}
 .ficha-topo h3{font-size:30px}
+.ficha-topo small{color:var(--tinta-suave);font-size:14px}
+.ficha-corpo .chips li{background:var(--canvas)}
 .ficha-corpo{padding:20px 28px 28px;display:grid;gap:18px}
 .ficha-corpo p{color:var(--tinta-suave)}
 .contatos{list-style:none;display:grid;gap:10px}
@@ -229,18 +206,10 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 @media (max-width:1000px){.mercado-topo,.ao-vivo{grid-template-columns:1fr}.bento{grid-template-columns:repeat(2,1fr)}.tema,.tema.largo{grid-column:span 1}.tema.alto{grid-row:auto}.tema.largo{grid-column:1/-1}}
 @media (max-width:620px){.bento{grid-template-columns:1fr}.tema.largo{grid-column:auto}.indicadores{grid-template-columns:1fr}}
 
-/* 7 — Fechamento */
+/* Fechamento / planos */
 .fechamento{background:var(--floresta);color:var(--creme-texto);padding-block:clamp(96px,12vw,150px)}
-.fechamento-grade{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,6vw,88px);align-items:center}
-.fechamento h2{font-size:clamp(42px,6.4vw,84px);max-width:13ch;margin-bottom:24px}
-.fechamento .lead{color:rgba(244,242,232,.8);margin-bottom:36px}
-.plano{background:var(--canvas);color:var(--tinta);border-radius:32px;padding:36px}
-.plano h3{font-size:32px}
-.plano .preco{color:var(--tinta-suave);margin-top:6px}
-.plano ul{list-style:none;margin-top:24px;display:grid;gap:14px}
-.plano li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
-.plano li svg{width:20px;height:20px;color:var(--folha);flex:none;margin-top:3px}
-@media (max-width:900px){.fechamento-grade{grid-template-columns:1fr}}
+.fechamento h2{font-size:clamp(42px,6.4vw,84px);max-width:13ch}
+.fechamento .lead{color:rgba(244,242,232,.8);max-width:40ch}
 
 /* Rodapé claro com o logo original */
 .rodape{padding-block:56px 40px;font-size:15px;color:var(--tinta-suave)}
@@ -256,6 +225,115 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .zap-fixo{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:var(--folha);color:#fff;display:none;place-items:center;box-shadow:0 12px 28px -10px rgba(0,0,0,.5)}
 .zap-fixo svg{width:28px;height:28px}
 @media (max-width:760px){.zap-fixo{display:grid}}
+
+/* Faixa de patrocinadores (logo abaixo da abertura) */
+.faixa-patro{background:var(--branco);border-bottom:1px solid var(--linha);padding-block:22px;overflow:hidden}
+.faixa-patro .wrap{display:flex;align-items:center;gap:28px}
+.faixa-rotulo{flex:none;font:600 15px/1.25 var(--display);color:var(--tinta);max-width:11ch}
+.faixa-janela{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.faixa-trilha{display:flex;gap:18px;width:max-content;animation:faixa 32s linear infinite}
+.faixa-patro:hover .faixa-trilha,.faixa-patro:focus-within .faixa-trilha{animation-play-state:paused}
+@keyframes faixa{to{transform:translateX(calc(-50% - 9px))}}
+.faixa-item{display:flex;align-items:center;gap:14px;padding:10px 18px 10px 10px;border:1px solid var(--linha);border-radius:22px;background:var(--branco);text-decoration:none;transition:border-color .2s ease,transform .3s var(--ease)}
+.faixa-item:hover{border-color:var(--folha);transform:translateY(-2px)}
+.faixa-item .fl{width:92px;height:72px;border-radius:14px;overflow:hidden;display:grid;place-items:center;background:var(--branco)}
+.faixa-item .fl img{width:100%;height:100%;object-fit:contain}
+.faixa-item .fl.cheio img{object-fit:cover}
+.faixa-item b{display:block;font:600 16px/1.2 var(--display);white-space:nowrap}
+.faixa-item small{display:block;font-size:13px;color:var(--tinta-suave);white-space:nowrap}
+@media (max-width:760px){.faixa-rotulo{display:none}.faixa-item .fl{width:72px;height:56px}}
+@media (prefers-reduced-motion:reduce){.faixa-trilha{animation:none}.faixa-janela{overflow-x:auto;-webkit-mask-image:none;mask-image:none}}
+
+/* Serviços: diretório dos parceiros por categoria e plano */
+.servicos{background:var(--campo);color:var(--creme-texto);padding-block:clamp(32px,5vw,56px) clamp(88px,11vw,140px);margin-top:-1px}
+.servicos-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.servicos-topo h2{max-width:14ch}
+.servicos-topo p{max-width:42ch;color:rgba(244,242,232,.82);font-size:18px}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.filtro{border:1px solid rgba(244,242,232,.35);background:transparent;color:var(--creme-texto);border-radius:100px;padding:11px 18px;min-height:44px;font:500 15px/1 var(--sans);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.filtro span{opacity:.65;margin-left:6px;font-variant-numeric:tabular-nums}
+.filtro:hover{border-color:var(--creme-texto)}
+.filtro[aria-pressed="true"]{background:var(--creme-texto);color:var(--floresta);border-color:var(--creme-texto)}
+.bloco-destaque{margin-bottom:44px}
+.titulo-bloco{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.titulo-bloco h3{font-size:clamp(24px,2.6vw,34px)}
+.titulo-bloco span{font-size:14px;color:rgba(244,242,232,.7);font-variant-numeric:tabular-nums}
+.grade-destaque{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:20px}
+.destaque-card{display:grid;grid-template-columns:1fr 1.1fr;background:var(--branco);color:var(--tinta);border-radius:30px;overflow:hidden;min-height:340px;box-shadow:0 30px 60px -36px rgba(0,0,0,.6)}
+.destaque-card .p-foto{aspect-ratio:auto;height:100%}
+.destaque-card .p-corpo{padding:28px}
+.destaque-card .p-logo{margin:0 0 8px;width:220px;height:150px;box-shadow:none;border:1px solid var(--linha)}
+.vaga{display:flex;flex-direction:column;justify-content:center;gap:14px;border:2px dashed rgba(244,242,232,.45);border-radius:30px;padding:clamp(24px,3.4vw,40px);min-height:0}
+.vaga h4{font:600 clamp(26px,3vw,40px)/1.05 var(--display);letter-spacing:-.03em;max-width:16ch}
+.vaga p{color:rgba(244,242,232,.82);max-width:46ch}
+.vaga .btn{align-self:flex-start}
+.parceiro[hidden]{display:none}
+.p-cat{font-size:13px;font-weight:600;color:var(--folha)}
+.grade-cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:20px}
+.parceiro{background:var(--branco);color:var(--tinta);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 60px -36px rgba(0,0,0,.6);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.parceiro:hover{transform:translateY(-6px);box-shadow:0 40px 70px -34px rgba(0,0,0,.7)}
+.parceiro.nivel-destaque{outline:3px solid var(--ouro);outline-offset:-3px}
+.p-foto{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--tom,#8a9a58)}
+.p-foto>img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.parceiro:hover .p-foto>img,.destaque-card:hover .p-foto>img{transform:scale(1.05)}
+.p-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),rgba(0,0,0,0) 55%)}
+.selos{position:absolute;z-index:1;top:16px;right:16px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.selo{background:rgba(255,255,255,.94);color:var(--floresta);font-size:13px;font-weight:600;padding:7px 12px;border-radius:100px;font-variant-numeric:tabular-nums}
+.selo.ouro{background:var(--ouro);color:var(--floresta)}
+.p-logo{position:relative;z-index:2;margin:-96px 24px 0;width:212px;height:164px;border-radius:22px;background:var(--branco);display:grid;place-items:center;padding:12px;box-shadow:0 16px 36px -18px rgba(0,0,0,.45)}
+.p-logo img{width:100%;height:100%;object-fit:contain;min-height:0}
+.p-logo.cheio{padding:0;overflow:hidden}
+.p-logo.cheio img{object-fit:cover}
+.p-corpo{padding:20px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.p-corpo h4{font:600 clamp(24px,2.2vw,30px)/1.05 var(--display);letter-spacing:-.025em}
+.p-seg{color:var(--tinta-suave);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin-top:4px}
+.chips li{font-size:13px;font-weight:500;padding:6px 11px;border-radius:100px;background:var(--canvas);color:var(--tinta)}
+.p-acoes{display:flex;gap:10px;margin-top:auto;padding-top:18px;flex-wrap:wrap}
+.p-acoes .btn{min-height:46px;padding:12px 18px;font-size:14px}
+.p-acoes .redondo{width:46px;min-width:46px;padding:0}
+.convite{margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:28px 32px;border-radius:28px;background:rgba(244,242,232,.08);border:1px solid rgba(244,242,232,.2)}
+.convite p{font:600 clamp(20px,2.2vw,26px)/1.2 var(--display);max-width:30ch}
+@media (max-width:760px){.destaque-card{grid-template-columns:1fr}.destaque-card .p-foto{aspect-ratio:16/10}.destaque-card .p-logo{width:180px;height:124px}}
+@media (max-width:620px){.p-logo{width:190px;height:148px;margin-top:-84px}}
+
+/* Mercado: guia rápido */
+.guia{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+.guia div{background:var(--branco);border-radius:24px;padding:24px}
+.guia h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.guia p{font-size:15px;color:var(--tinta-suave)}
+.tema.meio{grid-column:span 3}
+@media (max-width:1000px){.guia{grid-template-columns:1fr}.tema.meio{grid-column:span 1}}
+@media (min-width:1001px){.indicadores{grid-template-columns:repeat(4,1fr)}.ao-vivo{grid-template-columns:1fr 2fr}}
+
+/* Sobre */
+.sobre{padding-block:clamp(88px,11vw,140px) 0}
+.sobre-grade{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.sobre h2{max-width:12ch}
+.sobre-texto{display:grid;gap:18px;font-size:18px;color:var(--tinta-suave);max-width:60ch}
+.sobre-texto strong{color:var(--tinta)}
+.fatos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(40px,6vw,64px)}
+.fatos li{background:var(--branco);border-radius:22px;padding:22px}
+.fatos b{display:block;font:600 22px/1.15 var(--display);letter-spacing:-.02em;color:var(--tinta)}
+.fatos span{font-size:14px;color:var(--tinta-suave)}
+@media (max-width:900px){.sobre-grade{grid-template-columns:1fr}.fatos{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fatos{grid-template-columns:1fr}}
+
+/* Planos */
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(40px,6vw,64px)}
+.plano{background:rgba(244,242,232,.06);color:var(--creme-texto);border:1px solid rgba(244,242,232,.2);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:6px}
+.plano.forte{background:var(--canvas);color:var(--tinta);border-color:var(--canvas)}
+.plano h3{font-size:30px}
+.plano .onde{font-size:14px;font-weight:600;color:var(--ouro)}
+.plano.forte .onde{color:var(--folha)}
+.plano .preco{opacity:.75;font-size:15px}
+.plano ul{list-style:none;margin:18px 0 24px;display:grid;gap:12px}
+.plano li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.plano li svg{width:18px;height:18px;color:var(--ouro);flex:none;margin-top:3px}
+.plano.forte li svg{color:var(--folha)}
+.plano .btn{margin-top:auto;align-self:flex-start}
+.fechamento-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+@media (max-width:1000px){.planos{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -275,10 +353,10 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
     <a class="marca" href="#inicio" aria-label="Agro Lampa Business — início"><img src="img/logo.png" alt="Agro Lampa Business" width="162" height="112"></a>
     <nav aria-label="Principal">
       <ul class="menu">
-        <li><a href="#o-que-e">O que é</a></li>
-        <li><a href="#parceiros">Parceiros</a></li>
-        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#servicos">Serviços</a></li>
         <li><a href="#mercado">Mercado</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#anuncie">Anuncie</a></li>
       </ul>
     </nav>
     <a class="btn btn-folha" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Fale conosco</a>
@@ -295,14 +373,161 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
     <p data-fx="subir" data-fx-atraso="450">O Agro Lampa é o canal de mídia que coloca empresas locais na frente do produtor rural, com vídeo, anúncio e presença no Instagram.</p>
     <div class="acoes" data-fx="subir" data-fx-atraso="650">
       <a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20ser%20parceiro%20do%20Agro%20Lampa." target="_blank" rel="noopener">Quero ser parceiro</a>
-      <a class="btn btn-claro" href="#parceiros">Conhecer os parceiros</a>
+      <a class="btn btn-claro" href="#servicos">Ver os serviços</a>
     </div>
   </div>
-  <a class="descer" href="#o-que-e" aria-label="Descer para o conteúdo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+  <a class="descer" href="#servicos" aria-label="Descer para os serviços"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
 </section>
 
-<!-- 2 · O QUE É -->
-<section class="oque" id="o-que-e">
+<!-- FAIXA DE PATROCINADORES -->
+<section class="faixa-patro" aria-label="Patrocinadores">
+  <div class="wrap">
+    <p class="faixa-rotulo">Patrocinadores em destaque</p>
+    <div class="faixa-janela"><div class="faixa-trilha" id="faixa-trilha"></div></div>
+  </div>
+</section>
+
+<!-- AMANHECER -->
+<section class="amanhecer" data-fx-fixa data-fx-altura="2" aria-label="Abertura dos serviços">
+  <div class="fx-palco">
+    <img class="nascer" src="https://images.unsplash.com/photo-1721671052520-34d0f0a82648?fm=jpg&q=80&w=2400&auto=format&fit=crop" alt="Sol nascendo sobre o campo" loading="lazy" onerror="this.remove()">
+    <div class="wrap">
+      <h2>O dia começa com quem já está no campo.</h2>
+      <p>Empresas de São Carlos que atendem quem vive e trabalha no agro.</p>
+    </div>
+    <div class="previa-logos" id="previa-logos" aria-hidden="true"></div>
+    <a class="descer" href="#servicos">Ver os serviços<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="servicos-topo">
+      <h2>Serviços para quem vive do campo.</h2>
+      <p>Encontre por categoria e fale direto com a empresa pelo WhatsApp.</p>
+    </div>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+    <div class="bloco-destaque" id="bloco-destaque"></div>
+    <div id="categorias"></div>
+    <div class="convite">
+      <p>Sua empresa atende o produtor rural? Apareça aqui.</p>
+      <a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20anunciar%20minha%20empresa%20no%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Quero anunciar</a>
+    </div>
+  </div>
+</section>
+<div id="fichas"></div>
+
+<!-- MERCADO -->
+<section class="mercado" id="mercado">
+  <div class="wrap">
+    <div class="mercado-topo">
+      <h2 data-fx="subir">O mercado do campo, todo dia.</h2>
+      <p class="lead" data-fx="subir" data-fx-atraso="120">Cotações, notícias e clima direto das fontes de referência do agro brasileiro. Os números vêm das próprias fontes, atualizados por elas.</p>
+    </div>
+
+    <div class="ao-vivo">
+      <div class="painel" data-fx="crescer">
+        <span class="pulso">Ao vivo</span>
+        <h3>Dólar comercial</h3>
+        <div class="tv tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {"symbol":"FX_IDC:USDBRL","width":"100%","isTransparent":true,"colorTheme":"light","locale":"br"}
+          </script>
+        </div>
+        <p class="nota">Cotação fornecida pela TradingView. O dólar puxa o preço da soja, do milho e do café.</p>
+      </div>
+      <div class="painel" data-fx="crescer" data-fx-atraso="120">
+        <h3>Indicadores CEPEA / Esalq-USP</h3>
+        <div id="cepea-widget"><!-- Colar aqui o código do widget oficial: cepea.org.br/br/widget.aspx --></div>
+        <ul class="indicadores">
+          <li><a href="https://www.cepea.org.br/br/indicador/soja.aspx" target="_blank" rel="noopener"><span>Soja<small>Saca de 60 kg · Paranaguá</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/milho.aspx" target="_blank" rel="noopener"><span>Milho<small>Saca de 60 kg</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/boi-gordo.aspx" target="_blank" rel="noopener"><span>Boi gordo<small>Arroba · São Paulo</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/cafe.aspx" target="_blank" rel="noopener"><span>Café<small>Arábica e robusta</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/acucar.aspx" target="_blank" rel="noopener"><span>Açúcar<small>Cristal · São Paulo</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/etanol.aspx" target="_blank" rel="noopener"><span>Etanol<small>Hidratado e anidro</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/leite.aspx" target="_blank" rel="noopener"><span>Leite<small>Preço ao produtor</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+          <li><a href="https://www.cepea.org.br/br/indicador/trigo.aspx" target="_blank" rel="noopener"><span>Trigo<small>Paraná e Rio Grande do Sul</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guia">
+      <div data-fx="subir"><h3>O que é o indicador CEPEA</h3><p>Preço médio calculado pelo Cepea, da Esalq-USP, a partir de negócios reais. É a referência mais usada para comparar preços no Brasil.</p></div>
+      <div data-fx="subir" data-fx-atraso="100"><h3>Saca e arroba</h3><p>Soja, milho e café são cotados por saca de 60 kg. O boi gordo é cotado por arroba, que equivale a 15 kg de carcaça.</p></div>
+      <div data-fx="subir" data-fx-atraso="200"><h3>Praça</h3><p>É o local de referência do preço. A soja, por exemplo, tem indicador em Paranaguá (PR), porto de exportação.</p></div>
+    </div>
+
+    <div class="bento">
+      <a class="tema largo alto" data-fx="subir" href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank" rel="noopener" style="--tom:#6b7a2e">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">Notícias Agrícolas</span><h3>Cotações do dia</h3><p>Preços por produto e por praça, atualizados ao longo do dia.</p></div>
+      </a>
+      <a class="tema" data-fx="subir" data-fx-atraso="100" href="https://www.cepea.org.br/br/indicador/boi-gordo.aspx" target="_blank" rel="noopener" style="--tom:#7a5a32">
+        <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">CEPEA</span><h3>Pecuária</h3><p>Indicador do boi gordo.</p></div>
+      </a>
+      <a class="tema" data-fx="subir" data-fx-atraso="200" href="https://www.cepea.org.br/br/indicador/cafe.aspx" target="_blank" rel="noopener" style="--tom:#4a2f1d">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">CEPEA</span><h3>Café</h3><p>Arábica e robusta.</p></div>
+      </a>
+      <a class="tema" data-fx="subir" href="https://www.canalrural.com.br/" target="_blank" rel="noopener" style="--tom:#3d5a24">
+        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">Canal Rural</span><h3>Notícias do agro</h3><p>O que está movendo o campo hoje.</p></div>
+      </a>
+      <a class="tema" data-fx="subir" data-fx-atraso="100" href="https://portal.inmet.gov.br/" target="_blank" rel="noopener" style="--tom:#3c5a78">
+        <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">INMET</span><h3>Clima e chuva</h3><p>Previsão e alertas oficiais.</p></div>
+      </a>
+      <a class="tema" data-fx="subir" data-fx-atraso="200" href="https://www.embrapa.br/" target="_blank" rel="noopener" style="--tom:#2d4a3a">
+        <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">Embrapa</span><h3>Pesquisa e tecnologia</h3><p>Soluções para o produtor rural.</p></div>
+      </a>
+      <a class="tema meio" data-fx="subir" href="https://www.conab.gov.br/info-agro/safras" target="_blank" rel="noopener" style="--tom:#5b6b2a">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">Conab</span><h3>Safras e abastecimento</h3><p>Estimativas oficiais de área, produção e estoques.</p></div>
+      </a>
+      <a class="tema meio" data-fx="subir" data-fx-atraso="100" href="https://www.agrolink.com.br/cotacoes/" target="_blank" rel="noopener" style="--tom:#7a5a32">
+        <img src="https://images.unsplash.com/photo-1530267981375-f0de937f5f13?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
+        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
+        <div class="tema-txt"><span class="tema-fonte">Agrolink</span><h3>Cotações por região</h3><p>Preços praticados em diversas praças do país.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="sobre-grade">
+      <h2 data-fx="subir">Sobre o Agro Lampa</h2>
+      <div class="sobre-texto" data-fx="subir" data-fx-atraso="120">
+        <p><strong>O Agro Lampa Business é um canal de mídia do agro de São Carlos (SP).</strong> Pelo Instagram @agrolampa e por este site, apresentamos empresas da região para produtores rurais e para quem compra no campo.</p>
+        <p>Cada empresa parceira ganha vídeos gravados no próprio espaço, posts e collabs no @agrolampa, uma página nos Serviços deste site e anúncios que levam o cliente direto para o WhatsApp dela.</p>
+        <p>Também divulgamos vendas particulares ligadas ao agro, como caminhonetes e equipamentos, e reunimos aqui as cotações e notícias que o produtor acompanha no dia a dia.</p>
+      </div>
+    </div>
+    <ul class="fatos">
+      <li data-fx="subir"><b>São Carlos/SP</b><span>Atuação na cidade e na região</span></li>
+      <li data-fx="subir" data-fx-atraso="80"><b>@agrolampa</b><span>Canal principal no Instagram</span></li>
+      <li data-fx="subir" data-fx-atraso="160"><b>Equipe própria</b><span>Gravação com equipamento próprio</span></li>
+      <li data-fx="subir" data-fx-atraso="240"><b>Contato direto</b><span>Anúncios levam ao WhatsApp do parceiro</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- O QUE É (dentro de Sobre) -->
+<section class="oque" id="o-que-e" style="padding-top:clamp(56px,8vw,96px)">
   <div class="wrap oque-grade">
     <div>
       <h2 data-fx="subir">Um canal de mídia feito para as empresas daqui.</h2>
@@ -323,167 +548,7 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
   </div>
 </section>
 
-<!-- 3 · AMANHECER (foto real com a rolagem) -->
-<section class="amanhecer" data-fx-fixa data-fx-altura="2" aria-label="Parceiros">
-  <div class="fx-palco">
-    <img class="nascer" src="https://images.unsplash.com/photo-1721671052520-34d0f0a82648?fm=jpg&q=80&w=2400&auto=format&fit=crop" alt="Sol nascendo sobre o campo" loading="lazy" onerror="this.remove()">
-    <div class="wrap">
-      <h2>O dia começa com quem já está no campo.</h2>
-      <p>Cinco empresas de São Carlos que confiam no Agro Lampa para aparecer.</p>
-    </div>
-    <div class="previa-logos" aria-hidden="true">
-      <span class="cheio" data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="0.25,0.55"><img src="img/parceiros/logo-comercial-dourado.jpg" alt=""></span>
-      <span class="cheio" data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="0.32,0.62"><img src="img/parceiros/logo-pallone-motors.jpg" alt=""></span>
-      <span data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="0.39,0.69"><img src="img/parceiros/logo-lb-seguros.jpg" alt=""></span>
-      <span data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="0.46,0.76"><img src="img/parceiros/logo-tc-construtora.jpg" alt=""></span>
-      <span data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="0.53,0.83"><img src="img/parceiros/logo-bar-do-lampa.jpg" alt=""></span>
-    </div>
-    <a class="descer" href="#parceiros">Conheça os parceiros<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-  </div>
-</section>
-
-<!-- 4 · PARCEIROS -->
-<section class="parceiros" id="parceiros">
-  <div class="wrap">
-    <div class="grade-parceiros">
-
-      <article class="parceiro grande" data-fx="subir">
-        <div class="p-foto" style="--tom:#b23a2e"><img src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="Ferramentas de construção" loading="lazy" onerror="this.remove()"></div>
-        <div class="p-logo cheio"><img src="img/parceiros/logo-comercial-dourado.jpg" alt="Logo Comercial Dourado" width="300" height="300" loading="lazy"></div>
-        <div class="p-corpo">
-          <h3>Comercial Dourado</h3>
-          <p class="p-seg">Elétrica, hidráulica, ferramentas e utilidades</p>
-          <div class="p-acoes">
-            <a class="btn btn-folha" href="https://wa.me/5516996286301?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>
-            <a class="btn btn-linha redondo" href="https://instagram.com/comercialdourado_" target="_blank" rel="noopener" aria-label="Instagram da Comercial Dourado"><svg class="icone"><use href="#i-insta"/></svg></a>
-            <button class="btn btn-linha" type="button" data-abrir="f-dourado">Ver detalhes</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="parceiro grande" data-fx="subir" data-fx-atraso="120">
-        <div class="p-foto" style="--tom:#2b2b2b"><img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="Oficina mecânica" loading="lazy" onerror="this.remove()"><span class="p-desde">Desde 1980</span></div>
-        <div class="p-logo cheio"><img src="img/parceiros/logo-pallone-motors.jpg" alt="Logo Pallone Motors" width="730" height="476" loading="lazy"></div>
-        <div class="p-corpo">
-          <h3>Pallone Motors</h3>
-          <p class="p-seg">Veículos e oficina</p>
-          <div class="p-acoes">
-            <a class="btn btn-folha" href="https://wa.me/5516996125200?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>
-            <a class="btn btn-linha redondo" href="https://instagram.com/pallonemotors" target="_blank" rel="noopener" aria-label="Instagram da Pallone Motors"><svg class="icone"><use href="#i-insta"/></svg></a>
-            <button class="btn btn-linha" type="button" data-abrir="f-pallone">Ver detalhes</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="parceiro" data-fx="subir">
-        <div class="p-foto" style="--tom:#1f2b3a"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Assinatura de documento" loading="lazy" onerror="this.remove()"></div>
-        <div class="p-logo"><img src="img/parceiros/logo-lb-seguros.jpg" alt="Logo L.B. Seguros" width="318" height="196" loading="lazy"></div>
-        <div class="p-corpo">
-          <h3>L.B. Seguros</h3>
-          <p class="p-seg">Administradora e corretora de seguros</p>
-          <div class="p-acoes">
-            <a class="btn btn-folha" href="https://wa.me/5516996165701?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>
-            <button class="btn btn-linha" type="button" data-abrir="f-lb">Ver detalhes</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="parceiro" data-fx="subir" data-fx-atraso="120">
-        <div class="p-foto" style="--tom:#8a6a3a"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Obra em construção" loading="lazy" onerror="this.remove()"></div>
-        <div class="p-logo"><img src="img/parceiros/logo-tc-construtora.jpg" alt="Logo TC Construtora" width="254" height="228" loading="lazy"></div>
-        <div class="p-corpo">
-          <h3>TC Construtora</h3>
-          <p class="p-seg">Construindo sonhos, realizando futuros</p>
-          <div class="p-acoes">
-            <a class="btn btn-folha" href="https://wa.me/5516991946536?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>
-            <a class="btn btn-linha redondo" href="https://instagram.com/tcconstrutora.sc" target="_blank" rel="noopener" aria-label="Instagram da TC Construtora"><svg class="icone"><use href="#i-insta"/></svg></a>
-            <button class="btn btn-linha" type="button" data-abrir="f-tc">Ver detalhes</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="parceiro" data-fx="subir" data-fx-atraso="240">
-        <div class="p-foto" style="--tom:#a0791f"><img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Copos de cerveja gelada" loading="lazy" onerror="this.remove()"><span class="p-desde">Desde 2004</span></div>
-        <div class="p-logo"><img src="img/parceiros/logo-bar-do-lampa.jpg" alt="Logo Cervejaria Bar do Lampa" width="366" height="407" loading="lazy"></div>
-        <div class="p-corpo">
-          <h3>Bar do Lampa</h3>
-          <p class="p-seg">Cervejaria e depósito de bebidas</p>
-          <div class="p-acoes">
-            <a class="btn btn-folha" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>
-            <a class="btn btn-linha redondo" href="https://instagram.com/bardolampa" target="_blank" rel="noopener" aria-label="Instagram do Bar do Lampa"><svg class="icone"><use href="#i-insta"/></svg></a>
-            <button class="btn btn-linha" type="button" data-abrir="f-lampa">Ver detalhes</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- Fichas dos parceiros -->
-<dialog class="ficha" id="f-dourado" aria-labelledby="t-dourado">
-  <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>
-  <div class="ficha-topo"><div class="p-logo cheio"><img src="img/parceiros/logo-comercial-dourado.jpg" alt=""></div><h3 id="t-dourado">Comercial Dourado</h3></div>
-  <div class="ficha-corpo">
-    <p>Materiais de construção em São Carlos: elétrica, hidráulica, ferramentas e utilidades.</p>
-    <ul class="contatos">
-      <li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516996286301" target="_blank" rel="noopener">(16) 99628-6301</a><small>WhatsApp</small></div></li>
-      <li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:+551633611579">(16) 3361-1579</a><small>Telefone</small></div></li>
-      <li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/comercialdourado_" target="_blank" rel="noopener">@comercialdourado_</a><small>Instagram</small></div></li>
-    </ul>
-  </div>
-</dialog>
-
-<dialog class="ficha" id="f-pallone" aria-labelledby="t-pallone">
-  <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>
-  <div class="ficha-topo"><div class="p-logo cheio"><img src="img/parceiros/logo-pallone-motors.jpg" alt=""></div><h3 id="t-pallone">Pallone Motors</h3></div>
-  <div class="ficha-corpo">
-    <p>Veículos e oficina em São Carlos, com tradição desde 1980.</p>
-    <ul class="contatos">
-      <li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516996125200" target="_blank" rel="noopener">(16) 99612-5200</a><small>WhatsApp</small></div></li>
-      <li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/pallonemotors" target="_blank" rel="noopener">@pallonemotors</a><small>Instagram</small></div></li>
-    </ul>
-  </div>
-</dialog>
-
-<dialog class="ficha" id="f-lb" aria-labelledby="t-lb">
-  <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>
-  <div class="ficha-topo"><div class="p-logo"><img src="img/parceiros/logo-lb-seguros.jpg" alt=""></div><h3 id="t-lb">L.B. Seguros</h3></div>
-  <div class="ficha-corpo">
-    <p>L.B. Administradora e Corretora de Seguros, em São Carlos. Atendimento com Paola C. Diniz.</p>
-    <ul class="contatos">
-      <li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516996165701" target="_blank" rel="noopener">(16) 99616-5701</a><small>WhatsApp · Paola</small></div></li>
-      <li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:+551633727200">(16) 3372-7200</a><small>Telefone</small></div></li>
-      <li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:paola@lbcorretoradeseguros.com.br">paola@lbcorretoradeseguros.com.br</a><small>E-mail</small></div></li>
-    </ul>
-  </div>
-</dialog>
-
-<dialog class="ficha" id="f-tc" aria-labelledby="t-tc">
-  <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>
-  <div class="ficha-topo"><div class="p-logo"><img src="img/parceiros/logo-tc-construtora.jpg" alt=""></div><h3 id="t-tc">TC Construtora</h3></div>
-  <div class="ficha-corpo">
-    <p>Construtora de São Carlos. “Construindo sonhos, realizando futuros.”</p>
-    <ul class="contatos">
-      <li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516991946536" target="_blank" rel="noopener">(16) 99194-6536</a><small>WhatsApp</small></div></li>
-      <li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/tcconstrutora.sc" target="_blank" rel="noopener">@tcconstrutora.sc</a><small>Instagram</small></div></li>
-    </ul>
-  </div>
-</dialog>
-
-<dialog class="ficha" id="f-lampa" aria-labelledby="t-lampa">
-  <button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>
-  <div class="ficha-topo"><div class="p-logo"><img src="img/parceiros/logo-bar-do-lampa.jpg" alt=""></div><h3 id="t-lampa">Bar do Lampa</h3></div>
-  <div class="ficha-corpo">
-    <p>Cervejaria Bar do Lampa, em São Carlos desde 2004.</p>
-    <ul class="contatos">
-      <li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516991787430" target="_blank" rel="noopener">(16) 99178-7430</a><small>WhatsApp</small></div></li>
-      <li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/bardolampa" target="_blank" rel="noopener">@bardolampa</a><small>Instagram</small></div></li>
-    </ul>
-  </div>
-</dialog>
-
-<!-- 5 · COMO FUNCIONA -->
+<!-- COMO FUNCIONA (dentro de Sobre) -->
 <section class="como" id="como-funciona">
   <div class="wrap">
     <div class="como-intro">
@@ -528,93 +593,49 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
   </div>
 </section>
 
-<!-- 6 · MERCADO -->
-<section class="mercado" id="mercado">
+<!-- ANUNCIE -->
+<section class="fechamento" id="anuncie">
   <div class="wrap">
-    <div class="mercado-topo">
-      <h2 data-fx="subir">O mercado do campo, todo dia.</h2>
-      <p class="lead" data-fx="subir" data-fx-atraso="120">Cotações, notícias e clima direto das fontes de referência do agro brasileiro. Os números vêm das próprias fontes, atualizados por elas.</p>
-    </div>
-
-    <div class="ao-vivo">
-      <div class="painel" data-fx="crescer">
-        <span class="pulso">Ao vivo</span>
-        <h3>Dólar comercial</h3>
-        <div class="tv tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-          {"symbol":"FX_IDC:USDBRL","width":"100%","isTransparent":true,"colorTheme":"light","locale":"br"}
-          </script>
-        </div>
-        <p class="nota">Cotação fornecida pela TradingView. O dólar puxa o preço da soja, do milho e do café.</p>
-      </div>
-      <div class="painel" data-fx="crescer" data-fx-atraso="120">
-        <h3>Indicadores CEPEA / Esalq-USP</h3>
-        <div id="cepea-widget"><!-- Colar aqui o código do widget oficial: cepea.org.br/br/widget.aspx --></div>
-        <ul class="indicadores">
-          <li><a href="https://www.cepea.org.br/br/indicador/soja.aspx" target="_blank" rel="noopener"><span>Soja<small>Indicador diário</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
-          <li><a href="https://www.cepea.org.br/br/indicador/milho.aspx" target="_blank" rel="noopener"><span>Milho<small>Indicador diário</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
-          <li><a href="https://www.cepea.org.br/br/indicador/boi-gordo.aspx" target="_blank" rel="noopener"><span>Boi gordo<small>Indicador diário</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
-          <li><a href="https://www.cepea.org.br/br/indicador/cafe.aspx" target="_blank" rel="noopener"><span>Café<small>Indicador diário</small></span><svg class="icone"><use href="#i-seta"/></svg></a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="bento">
-      <a class="tema largo alto" data-fx="subir" href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank" rel="noopener" style="--tom:#6b7a2e">
-        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">Notícias Agrícolas</span><h3>Cotações do dia</h3><p>Preços por produto e por praça, atualizados ao longo do dia.</p></div>
-      </a>
-      <a class="tema" data-fx="subir" data-fx-atraso="100" href="https://www.cepea.org.br/br/indicador/boi-gordo.aspx" target="_blank" rel="noopener" style="--tom:#7a5a32">
-        <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">CEPEA</span><h3>Pecuária</h3><p>Indicador do boi gordo.</p></div>
-      </a>
-      <a class="tema" data-fx="subir" data-fx-atraso="200" href="https://www.cepea.org.br/br/indicador/cafe.aspx" target="_blank" rel="noopener" style="--tom:#4a2f1d">
-        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">CEPEA</span><h3>Café</h3><p>Arábica e robusta.</p></div>
-      </a>
-      <a class="tema" data-fx="subir" href="https://www.canalrural.com.br/" target="_blank" rel="noopener" style="--tom:#3d5a24">
-        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">Canal Rural</span><h3>Notícias do agro</h3><p>O que está movendo o campo hoje.</p></div>
-      </a>
-      <a class="tema" data-fx="subir" data-fx-atraso="100" href="https://portal.inmet.gov.br/" target="_blank" rel="noopener" style="--tom:#3c5a78">
-        <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">INMET</span><h3>Clima e chuva</h3><p>Previsão e alertas oficiais.</p></div>
-      </a>
-      <a class="tema" data-fx="subir" data-fx-atraso="200" href="https://www.embrapa.br/" target="_blank" rel="noopener" style="--tom:#2d4a3a">
-        <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="" loading="lazy" onerror="this.remove()">
-        <span class="seta"><svg class="icone"><use href="#i-seta"/></svg></span>
-        <div class="tema-txt"><span class="tema-fonte">Embrapa</span><h3>Pesquisa e tecnologia</h3><p>Soluções para o produtor rural.</p></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · FECHAMENTO -->
-<section class="fechamento" id="contato">
-  <div class="wrap fechamento-grade">
-    <div>
+    <div class="fechamento-topo">
       <h2 data-fx="palavras">Seu negócio na frente do produtor de São Carlos.</h2>
-      <p class="lead" data-fx="subir">Com vídeo e anúncio feitos para você. Chame no WhatsApp e montamos a proposta da sua empresa.</p>
-      <div data-fx="subir" data-fx-atraso="150">
-        <a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20uma%20proposta%20para%20ser%20parceiro%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Chamar no WhatsApp</a>
-      </div>
+      <p class="lead" data-fx="subir">Escolha onde sua empresa aparece. Quanto maior o plano, mais destaque no site e no @agrolampa.</p>
     </div>
-    <div class="plano" data-fx="direita">
-      <h3>Plano Premium 360</h3>
-      <p class="preco">Investimento sob consulta</p>
-      <ul>
-        <li><svg><use href="#i-ok"/></svg>Vídeos promocionais da sua empresa</li>
-        <li><svg><use href="#i-ok"/></svg>Posts e collabs no @agrolampa</li>
-        <li><svg><use href="#i-ok"/></svg>Anúncios com contato direto para você</li>
-        <li><svg><use href="#i-ok"/></svg>Página da sua empresa neste site</li>
-        <li><svg><use href="#i-ok"/></svg>Acompanhamento mensal dos resultados</li>
-      </ul>
+    <div class="planos">
+      <article class="plano" data-fx="subir">
+        <h3>Parceiro</h3>
+        <span class="onde">Na categoria dos Serviços</span>
+        <span class="preco">Sob consulta</span>
+        <ul>
+          <li><svg><use href="#i-ok"/></svg>Cartão da empresa na sua categoria</li>
+          <li><svg><use href="#i-ok"/></svg>Posts e collabs no @agrolampa</li>
+          <li><svg><use href="#i-ok"/></svg>Botões de WhatsApp e Instagram</li>
+        </ul>
+        <a class="btn btn-claro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20saber%20do%20plano%20Parceiro%20do%20Agro%20Lampa." target="_blank" rel="noopener">Quero este</a>
+      </article>
+      <article class="plano" data-fx="subir" data-fx-atraso="120">
+        <h3>Destaque</h3>
+        <span class="onde">Primeiro na categoria + faixa do topo</span>
+        <span class="preco">Sob consulta</span>
+        <ul>
+          <li><svg><use href="#i-ok"/></svg>Tudo do plano Parceiro</li>
+          <li><svg><use href="#i-ok"/></svg>Primeiro lugar na sua categoria, com selo Destaque</li>
+          <li><svg><use href="#i-ok"/></svg>Logo na faixa de patrocinadores do topo do site</li>
+          <li><svg><use href="#i-ok"/></svg>Vídeos promocionais da empresa</li>
+        </ul>
+        <a class="btn btn-claro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20saber%20do%20plano%20Destaque%20do%20Agro%20Lampa." target="_blank" rel="noopener">Quero este</a>
+      </article>
+      <article class="plano forte" data-fx="subir" data-fx-atraso="240">
+        <h3>Premium 360</h3>
+        <span class="onde">O maior espaço do site</span>
+        <span class="preco">Sob consulta</span>
+        <ul>
+          <li><svg><use href="#i-ok"/></svg>Tudo do plano Destaque</li>
+          <li><svg><use href="#i-ok"/></svg>Cartão grande no topo dos Serviços</li>
+          <li><svg><use href="#i-ok"/></svg>Anúncios com contato direto para você</li>
+          <li><svg><use href="#i-ok"/></svg>Acompanhamento mensal dos resultados</li>
+        </ul>
+        <a class="btn btn-folha" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20saber%20do%20plano%20Premium%20360%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Quero este</a>
+      </article>
     </div>
   </div>
 </section>
@@ -638,10 +659,10 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
     <div>
       <h4>Navegue</h4>
       <ul>
-        <li><a href="#o-que-e">O que é</a></li>
-        <li><a href="#parceiros">Parceiros</a></li>
-        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#servicos">Serviços</a></li>
         <li><a href="#mercado">Mercado</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#anuncie">Anuncie</a></li>
       </ul>
     </div>
     <div class="base">
@@ -653,16 +674,83 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 
 <a class="zap-fixo" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Agro%20Lampa." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-zap"/></svg></a>
 
+<script src="parceiros.js"></script>
 <script>
 (function(){
-  var reduzido=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Fichas dos parceiros */
-  document.querySelectorAll('[data-abrir]').forEach(function(b){
-    b.addEventListener('click',function(){var d=document.getElementById(b.dataset.abrir);if(d&&d.showModal)d.showModal()});
+  /* ====== Monta faixa, serviços e fichas a partir de PARCEIROS ====== */
+  var PESO={premium:0,destaque:1,parceiro:2};
+  var MSG='?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa.';
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function catNome(id){for(var i=0;i<CATEGORIAS.length;i++)if(CATEGORIAS[i].id===id)return CATEGORIAS[i].nome;return id}
+  var ordem=PARCEIROS.slice().sort(function(a,b){return PESO[a.plano]-PESO[b.plano]});
+  function logoBox(p,cls){return '<div class="'+cls+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt="Logo '+esc(p.nome)+'" loading="lazy"></div>'}
+  function selos(p){var s='';if(p.plano!=='parceiro')s+='<span class="selo ouro">Destaque</span>';if(p.desde)s+='<span class="selo">Desde '+p.desde+'</span>';else if(p.fundador)s+='<span class="selo">Parceiro fundador</span>';return s?'<div class="selos">'+s+'</div>':''}
+  function acoes(p){
+    var h='<a class="btn btn-folha" href="https://wa.me/'+p.whats+MSG+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>';
+    if(p.insta)h+='<a class="btn btn-linha redondo" href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener" aria-label="Instagram de '+esc(p.nome)+'"><svg class="icone"><use href="#i-insta"/></svg></a>';
+    h+='<button class="btn btn-linha" type="button" data-abrir="f-'+p.id+'">Ver detalhes</button>';
+    return '<div class="p-acoes">'+h+'</div>';
+  }
+  function chips(p){return '<ul class="chips">'+p.servicos.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul>'}
+  function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt)+'" loading="lazy" onerror="this.remove()">'+selos(p)+'</div>'}
+  function cartao(p){
+    return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'" data-fx="subir">'+foto(p)+logoBox(p,'p-logo')+
+      '<div class="p-corpo"><span class="p-cat">'+esc(catNome(p.cat))+'</span><h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.seg)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+  }
+  function cartaoGrande(p){
+    return '<article class="destaque-card" data-fx="crescer">'+foto(p)+'<div class="p-corpo">'+logoBox(p,'p-logo')+
+      '<h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+  }
+
+  /* Faixa do topo: premium + destaque; se ainda não houver, mostra todos */
+  var faixa=ordem.filter(function(p){return p.plano!=='parceiro'});if(!faixa.length)faixa=ordem;
+  function itemFaixa(p,oculto){return '<a class="faixa-item" href="#servicos"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'><span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span><span><b>'+esc(p.nome)+'</b><small>'+esc(catNome(p.cat))+'</small></span></a>'}
+  var seq=faixa.slice();while(seq.length<6)seq=seq.concat(faixa);
+  document.getElementById('faixa-trilha').innerHTML=seq.map(function(p,i){return itemFaixa(p,i>=faixa.length)}).join('')+seq.map(function(p){return itemFaixa(p,true)}).join('');
+
+  /* Logos que sobem no amanhecer */
+  document.getElementById('previa-logos').innerHTML=ordem.map(function(p,i){var a=(0.25+i*0.07).toFixed(2),b=(0.55+i*0.07).toFixed(2);return '<span class="'+(p.cheio?'cheio':'')+'" data-fx-y="60,0" data-fx-opacidade="0,1" data-fx-faixa="'+a+','+b+'"><img src="'+esc(p.logo)+'" alt=""></span>'}).join('');
+
+  /* Destaque principal (premium) */
+  var premium=ordem.filter(function(p){return p.plano==='premium'});
+  document.getElementById('bloco-destaque').innerHTML='<div class="titulo-bloco"><h3>Em destaque</h3></div><div class="grade-destaque">'+
+    (premium.length?premium.map(cartaoGrande).join(''):'')+
+    (premium.length<2?'<div class="vaga"><h4>Este espaço pode ser da sua empresa.</h4><p>O plano Premium 360 coloca sua empresa em primeiro lugar nos Serviços, com cartão grande, vídeos e anúncios.</p><a class="btn btn-ouro" href="#anuncie">Ver planos</a></div>':'')+'</div>';
+
+  /* Todos os parceiros numa grade só, com a categoria em cada cartão */
+  var grade=ordem.filter(function(p){return p.plano!=='premium'});
+  document.getElementById('categorias').innerHTML='<div class="titulo-bloco"><h3 id="titulo-lista">Todas as empresas</h3><span id="conta-lista">'+grade.length+' empresas</span></div><div class="grade-cat">'+grade.map(cartao).join('')+'</div>';
+
+  /* Filtros */
+  var f='<button class="filtro" type="button" aria-pressed="true" data-filtro="todos">Todos<span>'+PARCEIROS.length+'</span></button>';
+  CATEGORIAS.forEach(function(c){var n=PARCEIROS.filter(function(p){return p.cat===c.id}).length;if(n)f+='<button class="filtro" type="button" aria-pressed="false" data-filtro="'+c.id+'">'+esc(c.nome)+'<span>'+n+'</span></button>'});
+  var filtros=document.getElementById('filtros');filtros.innerHTML=f;
+  filtros.addEventListener('click',function(e){
+    var b=e.target.closest('[data-filtro]');if(!b)return;
+    filtros.querySelectorAll('[data-filtro]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var v=b.dataset.filtro;
+    var n=0;document.querySelectorAll('.grade-cat .parceiro').forEach(function(c){var ok=(v==='todos'||c.dataset.cat===v);c.hidden=!ok;if(ok)n++});
+    document.getElementById('titulo-lista').textContent=(v==='todos'?'Todas as empresas':catNome(v));
+    document.getElementById('conta-lista').textContent=n+(n===1?' empresa':' empresas');
+    document.getElementById('bloco-destaque').hidden=(v!=='todos');
   });
-  document.querySelectorAll('dialog.ficha').forEach(function(d){
-    d.addEventListener('click',function(e){if(e.target===d||e.target.closest('[data-fechar]'))d.close()});
+
+  /* Fichas */
+  document.getElementById('fichas').innerHTML=PARCEIROS.map(function(p){
+    var c='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/'+p.whats+'" target="_blank" rel="noopener">'+esc(p.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
+    if(p.tel)c+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+p.tel+'">'+esc(p.telTxt)+'</a><small>Telefone</small></div></li>';
+    if(p.email)c+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a><small>E-mail</small></div></li>';
+    if(p.insta)c+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener">@'+esc(p.insta)+'</a><small>Instagram</small></div></li>';
+    return '<dialog class="ficha" id="f-'+p.id+'" aria-labelledby="t-'+p.id+'"><button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>'+
+      '<div class="ficha-topo">'+logoBox(p,'p-logo')+'<div><h3 id="t-'+p.id+'">'+esc(p.nome)+'</h3><small>'+esc(catNome(p.cat))+'</small></div></div>'+
+      '<div class="ficha-corpo"><p>'+esc(p.resumo)+'</p>'+chips(p)+'<ul class="contatos">'+c+'</ul></div></dialog>';
+  }).join('');
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-abrir]');
+    if(b){var d=document.getElementById(b.dataset.abrir);if(d&&d.showModal)d.showModal();return}
+    var d2=e.target.closest('dialog.ficha');
+    if(d2&&(e.target===d2||e.target.closest('[data-fechar]')))d2.close();
   });
 
   /* Como funciona: a etapa no centro da tela troca a imagem */
