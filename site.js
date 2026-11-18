@@ -1,0 +1,146 @@
+/* Agro Lampa — script compartilhado pelas páginas.
+   Lê CATEGORIAS e PARCEIROS de parceiros.js e monta só o que existir na página. */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var reduzido=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PESO={premium:0,destaque:1,parceiro:2};
+  var MSG='?text=Ol%C3%A1!%20Vi%20voc%C3%AAs%20no%20site%20do%20Agro%20Lampa.';
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function cat(id){for(var i=0;i<CATEGORIAS.length;i++)if(CATEGORIAS[i].id===id)return CATEGORIAS[i];return{id:id,nome:id,icone:'mais'}}
+  function contar(id){return PARCEIROS.filter(function(p){return p.cat===id}).length}
+  var ordem=PARCEIROS.slice().sort(function(a,b){return PESO[a.plano]-PESO[b.plano]});
+
+  /* Ícones das categorias: traço escuro, um detalhe verde e uma mancha dourada clara atrás */
+  var ICONES={
+    capacete:'<path d="M8 30a16 16 0 0 1 32 0"/><path d="M5 30h38v6H5z"/><path class="ac" d="M20 14v8M28 14v8"/>',
+    carro:'<path d="M9 30l4-11a3 3 0 0 1 3-2h16a3 3 0 0 1 3 2l4 11"/><rect x="6" y="29" width="36" height="9" rx="2"/><path d="M11 38v4M37 38v4"/><circle class="ac" cx="14" cy="33.5" r="2"/><circle class="ac" cx="34" cy="33.5" r="2"/>',
+    escudo:'<path d="M24 6l15 5v10c0 9-6 17-15 21C15 38 9 30 9 21V11z"/><path class="ac" d="M17 24l5 5 9-10"/>',
+    caneca:'<path d="M11 14h20v26a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2z"/><path d="M31 19h4a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-4"/><path class="ac" d="M11 14c0-4 3-6 6-6 1-2 4-3 6-2 2-1 5 0 6 2 2 0 3 3 2 6"/><path d="M17 22v14M24 22v14"/>',
+    broto:'<path d="M24 42V22"/><path class="ac" d="M24 24c0-8-6-13-14-13 0 8 6 13 14 13zM24 20c0-7 5-12 12-12 0 7-5 12-12 12z"/><path d="M14 42h20"/>',
+    trator:'<circle cx="15" cy="33" r="7"/><circle cx="36" cy="36" r="4"/><path d="M15 26V14h12l4 10h6v8"/><path class="ac" d="M21 14v-4M31 24h-8"/>',
+    cerca:'<path d="M10 14l3-4 3 4v28h-6zM22 14l3-4 3 4v28h-6zM34 14l3-4 3 4v28h-6z"/><path class="ac" d="M4 22h40M4 32h40"/>',
+    mais:'<circle class="ac" cx="14" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/><circle class="ac" cx="34" cy="24" r="2.5"/>'
+  };
+  function icone(nome){return '<svg class="cat-ico" viewBox="0 0 48 48" aria-hidden="true"><circle class="mancha" cx="31" cy="15" r="11"/><g>'+(ICONES[nome]||ICONES.mais)+'</g></svg>'}
+
+  function logoBox(p,cls){return '<div class="'+cls+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt="Logo '+esc(p.nome)+'" loading="lazy"></div>'}
+  function selos(p){var s='';if(p.plano!=='parceiro')s+='<span class="selo ouro">Destaque</span>';if(p.desde)s+='<span class="selo">Desde '+p.desde+'</span>';else if(p.fundador)s+='<span class="selo">Parceiro fundador</span>';return s?'<div class="selos">'+s+'</div>':''}
+  function acoes(p){
+    var h='<a class="btn btn-folha" href="https://wa.me/'+p.whats+MSG+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>';
+    if(p.insta)h+='<a class="btn btn-linha redondo" href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener" aria-label="Instagram de '+esc(p.nome)+'"><svg class="icone"><use href="#i-insta"/></svg></a>';
+    return '<div class="p-acoes">'+h+'<button class="btn btn-linha" type="button" data-abrir="f-'+p.id+'">Ver detalhes</button></div>';
+  }
+  function chips(p){return '<ul class="chips">'+p.servicos.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul>'}
+  function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt)+'" loading="lazy" onerror="this.remove()">'+selos(p)+'</div>'}
+  function cartao(p){
+    return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'">'+foto(p)+logoBox(p,'p-logo')+
+      '<div class="p-corpo"><span class="p-cat">'+esc(cat(p.cat).nome)+'</span><h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.seg)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+  }
+  function cartaoGrande(p){
+    return '<article class="destaque-card">'+foto(p)+'<div class="p-corpo">'+logoBox(p,'p-logo')+
+      '<h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
+  }
+
+  /* Faixa de patrocinadores: premium + destaque; enquanto não houver, todos */
+  var trilha=$('faixa-trilha');
+  if(trilha){
+    var faixa=ordem.filter(function(p){return p.plano!=='parceiro'});if(!faixa.length)faixa=ordem;
+    var item=function(p,oculto){return '<a class="faixa-item" href="servicos.html#'+p.cat+'"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'><span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span><span><b>'+esc(p.nome)+'</b><small>'+esc(cat(p.cat).nome)+'</small></span></a>'};
+    var seq=faixa.slice();while(seq.length<6)seq=seq.concat(faixa);
+    trilha.innerHTML=seq.map(function(p,i){return item(p,i>=faixa.length)}).join('')+seq.map(function(p){return item(p,true)}).join('');
+  }
+
+  /* Abertura em carrossel (página inicial) */
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var pontos=$('pontos');
+  if(slides.length>1&&pontos){
+    var atual=0,timer;
+    pontos.innerHTML=slides.map(function(s,i){return '<button type="button" aria-label="Foto '+(i+1)+' de '+slides.length+'"'+(i===0?' aria-current="true"':'')+'></button>'}).join('');
+    var bts=[].slice.call(pontos.children);
+    var ir=function(i){slides[atual].classList.remove('ativo');bts[atual].removeAttribute('aria-current');atual=(i+slides.length)%slides.length;slides[atual].classList.add('ativo');bts[atual].setAttribute('aria-current','true');var r=$('slide-legenda');if(r)r.textContent=slides[atual].dataset.legenda||''};
+    var tocar=function(){clearInterval(timer);if(!reduzido)timer=setInterval(function(){ir(atual+1)},5500)};
+    bts.forEach(function(b,i){b.addEventListener('click',function(){ir(i);tocar()})});
+    tocar();
+  }
+
+  /* Grade de categorias (página inicial) */
+  var gcat=$('grade-categorias');
+  if(gcat){
+    gcat.innerHTML=CATEGORIAS.map(function(c){var n=contar(c.id);return '<a class="cat-tile" href="servicos.html#'+c.id+'">'+icone(c.icone)+'<b>'+esc(c.nome)+'</b><small>'+(n?n+(n>1?' empresas':' empresa'):'Em breve')+'</small></a>'}).join('')+
+      '<a class="cat-tile ver-todos" href="servicos.html">'+icone('mais')+'<b>Ver todos</b><small>'+PARCEIROS.length+' empresas</small></a>';
+  }
+
+  /* Página de serviços */
+  var lista=$('lista-servicos');
+  if(lista){
+    var premium=ordem.filter(function(p){return p.plano==='premium'});
+    var dest=ordem.filter(function(p){return p.plano==='destaque'});
+    var vaga=function(t,txt){return '<div class="vaga"><h4>'+t+'</h4><p>'+txt+'</p><a class="btn btn-ouro" href="sobre.html#anuncie">Ver planos</a></div>'};
+    $('bloco-destaque').innerHTML='<div class="titulo-bloco"><h3>Em destaque</h3></div><div class="grade-destaque">'+premium.map(cartaoGrande).join('')+
+      (premium.length<2?vaga('Este espaço pode ser da sua empresa.','O plano Premium 360 coloca sua empresa em primeiro lugar nesta página, com cartão grande, vídeos e anúncios.'):'')+'</div>';
+    var meio=$('meio-destaque');
+    if(meio){
+      meio.innerHTML=dest.length?'<div class="grade-cat">'+dest.map(cartao).join('')+'</div>':
+        '<div class="banner-meio"><div><h3>Destaque da semana</h3><p>Com o plano Destaque, sua empresa aparece aqui, primeiro na sua categoria e na faixa de patrocinadores do topo.</p></div><a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20saber%20do%20plano%20Destaque%20do%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Quero aparecer aqui</a></div>';
+    }
+    var grade=ordem.filter(function(p){return p.plano==='parceiro'});
+    lista.innerHTML='<div class="grade-cat">'+grade.map(cartao).join('')+'</div><div class="vazio" id="vazio" hidden></div>';
+    var f='<button class="filtro" type="button" aria-pressed="true" data-filtro="todos">Todos<span>'+PARCEIROS.length+'</span></button>';
+    CATEGORIAS.forEach(function(c){var n=contar(c.id);f+='<button class="filtro" type="button" aria-pressed="false" data-filtro="'+c.id+'">'+esc(c.nome)+'<span>'+n+'</span></button>'});
+    var filtros=$('filtros');filtros.innerHTML=f;
+    var aplicar=function(v){
+      if(!filtros.querySelector('[data-filtro="'+v+'"]'))v='todos';
+      filtros.querySelectorAll('[data-filtro]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.filtro===v?'true':'false')});
+      var n=0;document.querySelectorAll('#lista-servicos .parceiro,#meio-destaque .parceiro').forEach(function(c){var ok=(v==='todos'||c.dataset.cat===v);c.hidden=!ok;if(ok)n++});
+      $('bloco-destaque').hidden=(v!=='todos');
+      $('titulo-lista').textContent=(v==='todos'?'Todas as empresas':cat(v).nome);
+      $('conta-lista').textContent=n+(n===1?' empresa':' empresas');
+      var vz=$('vazio');vz.hidden=n>0;
+      if(!n)vz.innerHTML='<h4>Ainda não temos empresas em '+esc(cat(v).nome)+'.</h4><p>Sua empresa atende este segmento? Ela pode ser a primeira.</p><a class="btn btn-ouro" href="https://wa.me/5516991787430?text=Ol%C3%A1!%20Quero%20anunciar%20em%20'+encodeURIComponent(cat(v).nome)+'%20no%20Agro%20Lampa." target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Quero ser o primeiro</a>';
+    };
+    filtros.addEventListener('click',function(e){var b=e.target.closest('[data-filtro]');if(!b)return;var v=b.dataset.filtro;history.replaceState(null,'',v==='todos'?location.pathname:'#'+v);aplicar(v)});
+    aplicar((location.hash||'#todos').slice(1));
+    addEventListener('hashchange',function(){aplicar((location.hash||'#todos').slice(1))});
+  }
+
+  /* Logos que sobem na faixa de fotos da página de serviços */
+  var fotos=$('trilha-fotos');
+  if(fotos){
+    var imgs=ordem.map(function(p){return '<figure class="foto-item" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt)+'" loading="lazy" onerror="this.remove()"><figcaption><span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span>'+esc(p.nome)+'</figcaption></figure>'}).join('');
+    fotos.innerHTML=imgs+imgs.replace(/<figure /g,'<figure aria-hidden="true" ');
+  }
+
+  /* Fichas dos parceiros */
+  var fichas=$('fichas');
+  if(fichas){
+    fichas.innerHTML=PARCEIROS.map(function(p){
+      var c='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/'+p.whats+'" target="_blank" rel="noopener">'+esc(p.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
+      if(p.tel)c+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+p.tel+'">'+esc(p.telTxt)+'</a><small>Telefone</small></div></li>';
+      if(p.email)c+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a><small>E-mail</small></div></li>';
+      if(p.insta)c+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener">@'+esc(p.insta)+'</a><small>Instagram</small></div></li>';
+      return '<dialog class="ficha" id="f-'+p.id+'" aria-labelledby="t-'+p.id+'"><button class="fechar" type="button" data-fechar aria-label="Fechar"><svg class="icone"><use href="#i-x"/></svg></button>'+
+        '<div class="ficha-topo">'+logoBox(p,'p-logo')+'<div><h3 id="t-'+p.id+'">'+esc(p.nome)+'</h3><small>'+esc(cat(p.cat).nome)+'</small></div></div>'+
+        '<div class="ficha-corpo"><p>'+esc(p.resumo)+'</p>'+chips(p)+'<ul class="contatos">'+c+'</ul></div></dialog>';
+    }).join('');
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('[data-abrir]');
+      if(b){var d=$(b.dataset.abrir);if(d&&d.showModal)d.showModal();return}
+      var d2=e.target.closest('dialog.ficha');
+      if(d2&&(e.target===d2||e.target.closest('[data-fechar]')))d2.close();
+    });
+  }
+
+  /* Como funciona: a etapa no centro da tela troca a imagem */
+  var passos=[].slice.call(document.querySelectorAll('.passo'));
+  if(passos.length&&'IntersectionObserver' in window){
+    var ims=[].slice.call(document.querySelectorAll('.como-midia img'));
+    var mcs=[].slice.call(document.querySelectorAll('.como-marcador i'));
+    var ativar=function(i){
+      passos.forEach(function(p,k){p.classList.toggle('ativo',k===i)});
+      ims.forEach(function(m,k){m.classList.toggle('ativa',k===i)});
+      mcs.forEach(function(m,k){m.classList.toggle('ativa',k===i)});
+    };
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)ativar(passos.indexOf(e.target))})},{rootMargin:'-45% 0px -45% 0px'});
+    passos.forEach(function(p){obs.observe(p)});
+  }
+})();

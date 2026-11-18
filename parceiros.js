@@ -1,13 +1,17 @@
-/* ====== PARCEIROS: edite aqui ======
+/* ====== PARCEIROS E CATEGORIAS: edite aqui ======
+   Categoria sem empresa aparece como "em breve" na página de serviços.
    plano: "premium" (cartão grande no topo dos Serviços + faixa do topo)
           "destaque" (primeiro na categoria + faixa do topo)
           "parceiro" (na categoria)
    Para mudar de plano, troque só o campo "plano". */
 var CATEGORIAS = [
-  {id:"construcao", nome:"Construção e reforma"},
-  {id:"veiculos", nome:"Veículos e oficina"},
-  {id:"seguros", nome:"Seguros"},
-  {id:"bebidas", nome:"Bebidas"}
+  {id:"construcao", nome:"Construção e reforma", icone:"capacete"},
+  {id:"veiculos", nome:"Veículos e oficina", icone:"carro"},
+  {id:"seguros", nome:"Seguros", icone:"escudo"},
+  {id:"bebidas", nome:"Bebidas", icone:"caneca"},
+  {id:"agropecuaria", nome:"Agropecuária e insumos", icone:"broto"},
+  {id:"maquinas", nome:"Máquinas e implementos", icone:"trator"},
+  {id:"rurais", nome:"Serviços rurais", icone:"cerca"}
 ];
 var PARCEIROS = [
   {id:"dourado", nome:"Comercial Dourado", cat:"construcao", plano:"parceiro", fundador:true,
@@ -37,7 +41,7 @@ var PARCEIROS = [
   {id:"lampa", nome:"Bar do Lampa", cat:"bebidas", plano:"parceiro", fundador:true, desde:2004,
    seg:"Cervejaria e depósito de bebidas", resumo:"Cervejaria Bar do Lampa, em São Carlos desde 2004.",
    servicos:["Cervejaria","Depósito de bebidas"],
-   logo:"img/parceiros/logo-bar-do-lampa.jpg", tom:"#a0791f",
+   logo:"img/parceiros/logo-bar-do-lampa.png", tom:"#a0791f",
    foto:"https://images.unsplash.com/photo-1535958636474-b021ee887b13?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Copos de cerveja gelada",
    whats:"5516991787430", whatsTxt:"(16) 99178-7430", insta:"bardolampa"}
 ];
