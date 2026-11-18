@@ -424,3 +424,9 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .parceiro{box-shadow:0 24px 50px -34px rgba(23,33,26,.35);border:1px solid var(--linha)}
 .parceiro:hover{box-shadow:0 34px 60px -34px rgba(23,33,26,.45)}
 .destaque-card{box-shadow:0 24px 50px -34px rgba(23,33,26,.35);border:1px solid var(--linha)}
+
+/* v5.3: empresas sem logo mostram as iniciais */
+.sigla{background:var(--ouro-claro)!important;display:grid;place-items:center}
+.sigla span{font:700 clamp(30px,4vw,52px)/1 var(--display);letter-spacing:-.03em;color:var(--floresta)}
+.faixa-item .sigla span,.foto-item .sigla span{font-size:22px}
+.ficha-topo .sigla span{font-size:34px}

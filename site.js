@@ -19,19 +19,32 @@
     broto:'<path d="M24 42V22"/><path class="ac" d="M24 24c0-8-6-13-14-13 0 8 6 13 14 13zM24 20c0-7 5-12 12-12 0 7-5 12-12 12z"/><path d="M14 42h20"/>',
     trator:'<circle cx="15" cy="33" r="7"/><circle cx="36" cy="36" r="4"/><path d="M15 26V14h12l4 10h6v8"/><path class="ac" d="M21 14v-4M31 24h-8"/>',
     cerca:'<path d="M10 14l3-4 3 4v28h-6zM22 14l3-4 3 4v28h-6zM34 14l3-4 3 4v28h-6z"/><path class="ac" d="M4 22h40M4 32h40"/>',
+    casa:'<path d="M7 22L24 8l17 14"/><path d="M11 19v22h26V19"/><path class="ac" d="M20 41V29h8v12"/>',
+    talher:'<path d="M15 6v13a4 4 0 0 0 8 0V6M19 6v36"/><path class="ac" d="M33 6c-4 3-5 9-5 14h5v22"/>',
+    botijao:'<rect x="11" y="14" width="26" height="28" rx="8"/><path d="M18 14V8h12v6"/><path class="ac" d="M11 26h26"/>',
+    caminhao:'<path d="M5 12h24v22H5z"/><path d="M29 20h8l6 7v7H29"/><circle class="ac" cx="13" cy="36" r="3.5"/><circle class="ac" cx="36" cy="36" r="3.5"/>',
+    arvore:'<path d="M24 42V26"/><path class="ac" d="M24 6c-8 0-13 6-13 13 0 6 6 9 13 9s13-3 13-9c0-7-5-13-13-13z"/><path d="M16 42h16"/>',
     mais:'<circle class="ac" cx="14" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/><circle class="ac" cx="34" cy="24" r="2.5"/>'
   };
   function icone(nome){return '<svg class="cat-ico" viewBox="0 0 48 48" aria-hidden="true"><circle class="mancha" cx="31" cy="15" r="11"/><g>'+(ICONES[nome]||ICONES.mais)+'</g></svg>'}
 
-  function logoBox(p,cls){return '<div class="'+cls+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt="Logo '+esc(p.nome)+'" loading="lazy"></div>'}
-  function selos(p){var s='';if(p.plano!=='parceiro')s+='<span class="selo ouro">Destaque</span>';if(p.desde)s+='<span class="selo">Desde '+p.desde+'</span>';else if(p.fundador)s+='<span class="selo">Parceiro fundador</span>';return s?'<div class="selos">'+s+'</div>':''}
+  function sigla(p){return p.nome.replace(/^(Imobiliária|Agropecuária|Açougue)\s+/,'').split(/\s+/).filter(function(w){return w.length>2||/^[A-Z0-9]/.test(w)}).slice(0,2).map(function(w){return w[0]}).join('').toUpperCase()}
+  function miniLogo(p){return p.logo?'<span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span>':'<span class="fl sigla"><span>'+esc(sigla(p))+'</span></span>'}
+  function logoBox(p,cls){
+    if(!p.logo)return '<div class="'+cls+' sigla" aria-hidden="true"><span>'+esc(sigla(p))+'</span></div>';
+    return '<div class="'+cls+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt="Logo '+esc(p.nome)+'" loading="lazy"></div>';
+  }
+  function selos(p){var s='';if(p.plano!=='parceiro')s+='<span class="selo ouro">Destaque</span>';if(p.seloTexto)s+='<span class="selo">'+esc(p.seloTexto)+'</span>';else if(p.desde)s+='<span class="selo">Desde '+p.desde+'</span>';else if(p.fundador)s+='<span class="selo">Parceiro fundador</span>';return s?'<div class="selos">'+s+'</div>':''}
   function acoes(p){
-    var h='<a class="btn btn-folha" href="https://wa.me/'+p.whats+MSG+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>';
+    var h;
+    if(p.whats)h='<a class="btn btn-folha" href="https://wa.me/'+p.whats+MSG+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>';
+    else if(p.tel)h='<a class="btn btn-folha" href="tel:'+p.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(p.telTxt)+'</a>';
+    else h='<a class="btn btn-folha" href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Pedir contato</a>';
     if(p.insta)h+='<a class="btn btn-linha redondo" href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener" aria-label="Instagram de '+esc(p.nome)+'"><svg class="icone"><use href="#i-insta"/></svg></a>';
     return '<div class="p-acoes">'+h+'<button class="btn btn-linha" type="button" data-abrir="f-'+p.id+'">Ver detalhes</button></div>';
   }
   function chips(p){return '<ul class="chips">'+p.servicos.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul>'}
-  function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt)+'" loading="lazy" onerror="this.remove()">'+selos(p)+'</div>'}
+  function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'">'+(p.foto?'<img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt||'')+'" loading="lazy" onerror="this.remove()">':'')+selos(p)+'</div>'}
   function cartao(p){
     return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'">'+foto(p)+logoBox(p,'p-logo')+
       '<div class="p-corpo"><span class="p-cat">'+esc(cat(p.cat).nome)+'</span><h4>'+esc(p.nome)+'</h4><p class="p-seg">'+esc(p.seg)+'</p><p class="p-resumo">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
@@ -44,8 +57,8 @@
   /* Faixa de patrocinadores: premium + destaque; enquanto não houver, todos */
   var trilha=$('faixa-trilha');
   if(trilha){
-    var faixa=ordem.filter(function(p){return p.plano!=='parceiro'});if(!faixa.length)faixa=ordem;
-    var item=function(p,oculto){return '<a class="faixa-item" href="servicos.html#'+p.cat+'"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'><span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span><span><b>'+esc(p.nome)+'</b><small>'+esc(cat(p.cat).nome)+'</small></span></a>'};
+    var faixa=ordem.filter(function(p){return p.plano!=='parceiro'});if(!faixa.length)faixa=ordem.filter(function(p){return p.logo});
+    var item=function(p,oculto){return '<a class="faixa-item" href="servicos.html#'+p.cat+'"'+(oculto?' tabindex="-1" aria-hidden="true"':'')+'>'+miniLogo(p)+'<span><b>'+esc(p.nome)+'</b><small>'+esc(cat(p.cat).nome)+'</small></span></a>'};
     var seq=faixa.slice();while(seq.length<6)seq=seq.concat(faixa);
     trilha.innerHTML=seq.map(function(p,i){return item(p,i>=faixa.length)}).join('')+seq.map(function(p){return item(p,true)}).join('');
   }
@@ -66,7 +79,8 @@
   /* Grade de categorias (página inicial) */
   var gcat=$('grade-categorias');
   if(gcat){
-    gcat.innerHTML=CATEGORIAS.map(function(c){var n=contar(c.id);return '<a class="cat-tile" href="servicos.html#'+c.id+'">'+icone(c.icone)+'<b>'+esc(c.nome)+'</b><small>'+(n?n+(n>1?' empresas':' empresa'):'Em breve')+'</small></a>'}).join('')+
+    var lc=CATEGORIAS.map(function(c,i){return{c:c,n:contar(c.id),i:i}}).sort(function(a,b){return ((b.n>0)-(a.n>0))||(a.i-b.i)}).slice(0,11).map(function(x){return x.c});
+    gcat.innerHTML=lc.map(function(c){var n=contar(c.id);return '<a class="cat-tile" href="servicos.html#'+c.id+'">'+icone(c.icone)+'<b>'+esc(c.nome)+'</b><small>'+(n?n+(n>1?' empresas':' empresa'):'Em breve')+'</small></a>'}).join('')+
       '<a class="cat-tile ver-todos" href="servicos.html">'+icone('mais')+'<b>Ver todos</b><small>'+PARCEIROS.length+' empresas</small></a>';
   }
 
@@ -106,7 +120,7 @@
   /* Logos que sobem na faixa de fotos da página de serviços */
   var fotos=$('trilha-fotos');
   if(fotos){
-    var imgs=ordem.map(function(p){return '<figure class="foto-item" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt)+'" loading="lazy" onerror="this.remove()"><figcaption><span class="fl'+(p.cheio?' cheio':'')+'"><img src="'+esc(p.logo)+'" alt=""></span>'+esc(p.nome)+'</figcaption></figure>'}).join('');
+    var imgs=ordem.filter(function(p){return p.foto}).map(function(p){return '<figure class="foto-item" style="--tom:'+p.tom+'"><img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt||'')+'" loading="lazy" onerror="this.remove()"><figcaption>'+miniLogo(p)+esc(p.nome)+'</figcaption></figure>'}).join('');
     fotos.innerHTML=imgs+imgs.replace(/<figure /g,'<figure aria-hidden="true" ');
   }
 
@@ -114,7 +128,9 @@
   var fichas=$('fichas');
   if(fichas){
     fichas.innerHTML=PARCEIROS.map(function(p){
-      var c='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/'+p.whats+'" target="_blank" rel="noopener">'+esc(p.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
+      var c='';
+      if(p.whats)c+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/'+p.whats+'" target="_blank" rel="noopener">'+esc(p.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
+      if(!p.whats&&!p.tel)c+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
       if(p.tel)c+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+p.tel+'">'+esc(p.telTxt)+'</a><small>Telefone</small></div></li>';
       if(p.email)c+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a><small>E-mail</small></div></li>';
       if(p.insta)c+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener">@'+esc(p.insta)+'</a><small>Instagram</small></div></li>';
