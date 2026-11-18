@@ -407,3 +407,20 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .parceiro .p-acoes .btn{min-height:52px;padding:14px 24px;font-size:15px}
 .parceiro .p-acoes .redondo{width:52px;min-width:52px;padding:0}
 @media (max-width:620px){.parceiro .p-logo{width:200px;height:150px;margin:-96px 20px 0}.parceiro .p-corpo{padding:20px 20px 24px}.parceiro .p-acoes .btn{padding:14px 18px}}
+
+/* v5.2: página de serviços com fundo branco */
+.servicos,.cabeca,.fotos-passando{background:var(--branco);color:var(--tinta)}
+.cabeca p{color:var(--tinta-suave)}
+.servicos-topo p{color:var(--tinta-suave)}
+.filtro{border-color:var(--linha);color:var(--tinta)}
+.filtro:hover{border-color:var(--tinta)}
+.filtro[aria-pressed="true"]{background:var(--folha);color:#fff;border-color:var(--folha)}
+.titulo-bloco span{color:var(--tinta-suave)}
+.vaga{border-color:var(--linha);background:var(--canvas)}
+.vaga p{color:var(--tinta-suave)}
+.vazio{border-color:var(--linha);background:var(--canvas)}
+.vazio p{color:var(--tinta-suave)}
+.convite{background:var(--canvas);border-color:var(--linha)}
+.parceiro{box-shadow:0 24px 50px -34px rgba(23,33,26,.35);border:1px solid var(--linha)}
+.parceiro:hover{box-shadow:0 34px 60px -34px rgba(23,33,26,.45)}
+.destaque-card{box-shadow:0 24px 50px -34px rgba(23,33,26,.35);border:1px solid var(--linha)}
