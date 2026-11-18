@@ -6,7 +6,7 @@
    Para mudar de plano, troque só o campo "plano". */
 var CATEGORIAS = [
   {id:"construcao", nome:"Construção e reforma", icone:"capacete"},
-  {id:"veiculos", nome:"Veículos e oficina", icone:"carro"},
+  {id:"veiculos", nome:"Veículos", icone:"carro"},
   {id:"seguros", nome:"Seguros", icone:"escudo"},
   {id:"bebidas", nome:"Bebidas", icone:"caneca"},
   {id:"agropecuaria", nome:"Agropecuária e insumos", icone:"broto"},
@@ -21,10 +21,10 @@ var PARCEIROS = [
    foto:"https://images.unsplash.com/photo-1581783898377-1c85bf937427?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Ferramentas de construção",
    whats:"5516996286301", whatsTxt:"(16) 99628-6301", tel:"+551633611579", telTxt:"(16) 3361-1579", insta:"comercialdourado_"},
   {id:"pallone", nome:"Pallone Motors", cat:"veiculos", plano:"parceiro", fundador:true, desde:1980,
-   seg:"Veículos e oficina", resumo:"Veículos e oficina em São Carlos, com tradição desde 1980.",
-   servicos:["Veículos","Oficina"],
+   seg:"Venda de veículos", resumo:"Loja de veículos em São Carlos, vendendo carros desde 1980.",
+   servicos:["Venda de veículos"],
    logo:"img/parceiros/logo-pallone-motors.jpg", cheio:true, tom:"#2b2b2b",
-   foto:"https://images.unsplash.com/photo-1487754180451-c456f719a1fc?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Oficina mecânica",
+   foto:"https://images.unsplash.com/photo-1761738217531-44a249d1dc87?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Carro à venda em showroom",
    whats:"5516996125200", whatsTxt:"(16) 99612-5200", insta:"pallonemotors"},
   {id:"lb", nome:"L.B. Seguros", cat:"seguros", plano:"parceiro", fundador:true,
    seg:"Administradora e corretora de seguros", resumo:"L.B. Administradora e Corretora de Seguros, em São Carlos. Atendimento com Paola C. Diniz.",

@@ -390,3 +390,20 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .vazio p{color:rgba(244,242,232,.82)}
 .vazio[hidden]{display:none}
 .faixa-patro.no-topo{border-top:0}
+
+/* v5.1: cartões de empresa maiores */
+.grade-cat{grid-template-columns:repeat(auto-fill,minmax(min(100%,500px),1fr));gap:28px}
+.parceiro{border-radius:32px}
+.parceiro .p-foto{aspect-ratio:16/9}
+.parceiro .p-logo{width:260px;height:190px;margin:-120px 32px 0;border-radius:26px;padding:16px}
+.parceiro .p-logo.cheio{padding:0}
+.parceiro .p-corpo{padding:24px 32px 32px;gap:10px}
+.parceiro .p-corpo h4{font-size:clamp(30px,2.8vw,40px)}
+.parceiro .p-cat{font-size:14px}
+.parceiro .p-seg{font-size:17px;color:var(--tinta)}
+.p-resumo{font-size:16px;color:var(--tinta-suave);max-width:52ch}
+.parceiro .chips li{font-size:14px;padding:7px 13px}
+.parceiro .p-acoes{padding-top:22px;gap:12px}
+.parceiro .p-acoes .btn{min-height:52px;padding:14px 24px;font-size:15px}
+.parceiro .p-acoes .redondo{width:52px;min-width:52px;padding:0}
+@media (max-width:620px){.parceiro .p-logo{width:200px;height:150px;margin:-96px 20px 0}.parceiro .p-corpo{padding:20px 20px 24px}.parceiro .p-acoes .btn{padding:14px 18px}}
