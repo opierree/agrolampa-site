@@ -121,7 +121,7 @@ var PARCEIROS = [
    servicos:["Fretes","Carretos"],
    tom:"#5a5a3a", foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Caixas de mudança",
    whats:"5516992835668", whatsTxt:"(16) 99283-5668"},
-  {id:"rogerio", nome:"Rogério Transportes", cat:"transporte", plano:"parceiro", pendente:true,
+  {id:"west", nome:"West Transportes", cat:"transporte", plano:"parceiro", pendente:true,
    seg:"Transportes", resumo:"Transportes em São Carlos.",
    servicos:["Transportes"],
    tom:"#4a4a4a"}
