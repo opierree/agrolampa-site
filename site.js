@@ -163,7 +163,7 @@
       var q=encodeURIComponent(P.nome+', '+(P.endereco||'São Carlos SP'));
       var mapsUrl='https://www.google.com/maps/search/?api=1&query='+q+(P.placeId?'&query_place_id='+P.placeId:'');
       var rotaUrl='https://www.google.com/maps/dir/?api=1&destination='+q+(P.placeId?'&destination_place_id='+P.placeId:'');
-      var temMapa=P.endereco&&!P.semMapa&&P.placeId;
+      var temMapa=P.endereco&&!P.semMapa;
 
       var botaoPrincipal=P.whats?'<a class="btn btn-ouro" href="'+zapLink+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Chamar no WhatsApp</a>':
         P.tel?'<a class="btn btn-ouro" href="tel:'+P.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(P.telTxt)+'</a>':
