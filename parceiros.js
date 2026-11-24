@@ -131,6 +131,6 @@ var PARCEIROS = [
    seg:"Fretamento e transporte executivo", resumo:"West Transportes e Fretamento, de São Carlos, no mercado desde 2004. Transporte corporativo, fretamento, turismo, transfer de aeroporto e eventos em todo o estado de São Paulo, com foco no interior. Cadastrada no Cadastur e na ARTESP.",
    servicos:["Fretamento para empresas","Transfer de aeroporto","Turismo e viagens em grupo","Transporte para eventos"],
    endereco:"São Carlos/SP · atende todo o estado de SP", semMapa:true,
-   tom:"#1f2b3a", foto:"https://images.unsplash.com/photo-1787028331201-75a0abb8ab0e?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Van branca moderna no embarque do aeroporto",
+   logo:"img/parceiros/logo-west.jpg", tom:"#1f2b3a", foto:"https://images.unsplash.com/photo-1787028331201-75a0abb8ab0e?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Van branca moderna no embarque do aeroporto",
    whats:"5516988127909", whatsTxt:"(16) 98812-7909", insta:"west.transportes", site:"https://westtransportes.com.br"}
 ];
