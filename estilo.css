@@ -499,3 +499,9 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .pp-mini-card small{font-size:13px;color:var(--tinta-suave)}
 @media (max-width:980px){.pp-grade{grid-template-columns:1fr}.pp-lado{position:static}.pp-mini{grid-template-columns:1fr}.pp-mapa-moldura{aspect-ratio:4/3}}
 @media (max-width:560px){.pp-galeria{grid-template-columns:1fr}.pp-id{align-items:flex-start}}
+
+/* v5.4 — logos pequenos (faixa, fotos, mini-cartões) sempre inteiros */
+.faixa-item .fl,.foto-item .fl,.pp-mini-card .fl{display:flex;align-items:center;justify-content:center;position:relative;flex:none}
+.faixa-item .fl:not(.cheio):not(.sigla),.pp-mini-card .fl:not(.cheio):not(.sigla){padding:6px}
+.faixa-item .fl img,.foto-item .fl img,.pp-mini-card .fl img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
+.faixa-item .fl.cheio img,.foto-item .fl.cheio img,.pp-mini-card .fl.cheio img{object-fit:cover}
