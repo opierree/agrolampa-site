@@ -579,3 +579,6 @@ html{scroll-padding-top:104px}
 .abertura{min-height:min(660px,calc(100svh - 104px))}
 @media (max-width:920px){.topo .wrap{height:84px}.marca img{height:68px}}
 .como-midia,.pp-lado{top:128px}
+/* v6.1 — leitura do título sobre fotos claras */
+.abertura .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,24,12,.78) 0%,rgba(9,24,12,.55) 45%,rgba(9,24,12,.1) 80%);pointer-events:none}
+@media (max-width:760px){.abertura .slide::after{background:rgba(9,24,12,.42)}}
