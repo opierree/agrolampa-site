@@ -47,11 +47,11 @@
   function chips(p){return '<ul class="chips">'+p.servicos.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul>'}
   function foto(p){return '<div class="p-foto" style="--tom:'+p.tom+'">'+(p.foto?'<img src="'+esc(p.foto)+'" alt="'+esc(p.fotoAlt||'')+'" loading="lazy" onerror="this.remove()">':'')+selos(p)+'</div>'}
   function cartao(p){
-    return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'">'+foto(p)+logoBox(p,'p-logo')+
+    return '<article class="parceiro nivel-'+p.plano+'" data-cat="'+p.cat+'">'+foto(p)+(p.logo?logoBox(p,'p-logo'):'')+
       '<div class="p-corpo"><span class="p-cat">'+esc(cat(p.cat).nome)+'</span><h4><a class="p-nome" href="parceiro.html?p='+p.id+'">'+esc(p.nome)+'</a></h4><p class="p-seg">'+esc(p.seg)+'</p><p class="p-resumo">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
   }
   function cartaoGrande(p){
-    return '<article class="destaque-card">'+foto(p)+'<div class="p-corpo">'+logoBox(p,'p-logo')+
+    return '<article class="destaque-card">'+foto(p)+'<div class="p-corpo">'+(p.logo?logoBox(p,'p-logo'):'')+
       '<h4><a class="p-nome" href="parceiro.html?p='+p.id+'">'+esc(p.nome)+'</a></h4><p class="p-seg">'+esc(p.resumo)+'</p>'+chips(p)+acoes(p)+'</div></article>';
   }
 
