@@ -89,7 +89,7 @@ var PARCEIROS = [
    nome:"OM Baterias", cat:"veiculos", plano:"parceiro",
    seg:"Baterias automotivas", resumo:"Baterias automotivas em São Carlos. R. Rio Araguaia, 246 – Jardim Jockei Club A.",
    servicos:["Baterias automotivas"],
-   logo:"img/parceiros/logo-om.jpg", cheio:true, tom:"#c0392b", foto:"https://images.unsplash.com/photo-1698326576123-bc9faf00848b?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Motor de carro com a bateria em destaque",
+   logo:"img/parceiros/logo-om.jpg", cheio:true, tom:"#c0392b", foto:"https://images.unsplash.com/photo-1765211003026-f7666ea3a948?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Bateria automotiva em close",
    whats:"5516992710450", whatsTxt:"(16) 99271-0450", insta:"ombaterias"},
   {id:"scaninha", endereco:"Av. Santa Gianna Beretta Molla, 163 – Parque dos Pássaros, São Carlos/SP", placeId:"ChIJL10i56h5goERvJunzr8M4gM", horario:["Seg a sex: 8h às 18h", "Sábado e domingo: fechado"],
    nome:"Scaninha Auto Peças", cat:"veiculos", plano:"parceiro",
