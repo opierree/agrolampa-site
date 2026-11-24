@@ -582,3 +582,12 @@ html{scroll-padding-top:104px}
 /* v6.1 — leitura do título sobre fotos claras */
 .abertura .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,24,12,.78) 0%,rgba(9,24,12,.55) 45%,rgba(9,24,12,.1) 80%);pointer-events:none}
 @media (max-width:760px){.abertura .slide::after{background:rgba(9,24,12,.42)}}
+/* v6.2 — logos dos cartões menores, alinhados à esquerda com o texto */
+.parceiro .p-logo{width:156px;height:116px;margin:-72px 0 0 32px;border-radius:20px;padding:10px;align-self:flex-start}
+.parceiro .p-logo.cheio{padding:0}
+.destaque-card .p-logo{width:156px;height:116px;padding:10px;border-radius:20px}
+.destaque-card .p-logo.cheio{padding:0}
+.pp-logo{width:clamp(130px,13vw,170px);border-radius:22px;padding:10px}
+.pp-logo.cheio{padding:0}
+@media (max-width:620px){.parceiro .p-logo{width:124px;height:92px;margin:-56px 0 0 20px;border-radius:16px;padding:8px}.parceiro .p-logo.cheio{padding:0}}
+@media (max-width:600px){.pp-logo{width:116px}}
