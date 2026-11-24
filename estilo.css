@@ -515,3 +515,18 @@ a.legenda[href]:hover #slide-texto{text-decoration:underline;text-underline-offs
 .leg-logo.cheio img{object-fit:cover}
 .leg-logo[hidden]{display:none}
 @media (max-width:760px){.legenda{gap:12px}.leg-logo{width:76px;height:58px;border-radius:12px;padding:5px}}
+
+/* v5.6 — abertura mais baixa; logo do parceiro mais alto, à direita; nome menor */
+.abertura{min-height:min(660px,calc(100svh - 128px))}
+.abertura .wrap{padding-block:clamp(36px,6vh,64px)}
+.abertura h1{font-size:clamp(40px,5.6vw,80px)}
+.abertura p{margin:18px 0 26px}
+.abertura-rodape{margin-top:28px}
+.legenda{font-size:17px;font-weight:600;line-height:1.25;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+@media (min-width:900px){
+  .abertura .wrap{position:relative}
+  .legenda{position:absolute;right:max(var(--gutter), env(safe-area-inset-right,0px));bottom:clamp(120px,18vh,170px);flex-direction:column;align-items:flex-end;gap:12px;text-align:right;max-width:280px}
+  .leg-logo{width:150px;height:112px;border-radius:20px;padding:10px}
+  .leg-logo.cheio{padding:0}
+}
+@media (max-width:899px){.legenda{font-size:15px}.leg-logo{width:76px;height:58px}}
