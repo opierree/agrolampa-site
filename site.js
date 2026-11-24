@@ -65,6 +65,17 @@
   }
 
   /* Abertura em carrossel (página inicial) */
+  /* Carrossel: acrescenta um slide para cada parceiro com logo que ainda não tenha foto fixa */
+  var abertura=document.querySelector('.abertura');
+  if(abertura&&window.PARCEIROS){
+    var jaTem={};[].forEach.call(abertura.querySelectorAll('.slide[data-parceiro]'),function(s){jaTem[s.dataset.parceiro]=1});
+    var antes=abertura.querySelector('.wrap'),PESO2={premium:0,destaque:1,parceiro:2};
+    PARCEIROS.filter(function(p){return p.logo&&p.foto&&!jaTem[p.id]}).sort(function(a,b){return PESO2[a.plano]-PESO2[b.plano]}).forEach(function(p){
+      var d=document.createElement('div');d.className='slide';d.dataset.legenda='Parceiro: '+p.nome;d.dataset.parceiro=p.id;
+      d.innerHTML='<img src="'+esc(p.foto.replace('w=1400','w=2400'))+'" alt="'+esc(p.fotoAlt||p.nome)+'" loading="lazy" onerror="this.remove()">';
+      abertura.insertBefore(d,antes);
+    });
+  }
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var pontos=$('pontos');
   if(slides.length>1&&pontos){

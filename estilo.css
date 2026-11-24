@@ -530,3 +530,10 @@ a.legenda[href]:hover #slide-texto{text-decoration:underline;text-underline-offs
   .leg-logo.cheio{padding:0}
 }
 @media (max-width:899px){.legenda{font-size:15px}.leg-logo{width:76px;height:58px}}
+/* v5.7 — muitos slides: pontos compactos */
+.pontos{flex-wrap:wrap;gap:4px}
+.pontos button{width:22px}
+.pontos button::before{width:16px}
+.pontos button[aria-current="true"]::before{width:26px}
+.pontos button[aria-current="true"]{width:30px}
+@media (max-width:760px){.pontos{gap:2px}.pontos button{width:18px}.pontos button::before{width:12px}.pontos button[aria-current="true"]{width:26px}.pontos button[aria-current="true"]::before{width:22px}}
