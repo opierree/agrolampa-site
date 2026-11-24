@@ -71,7 +71,14 @@
     var atual=0,timer;
     pontos.innerHTML=slides.map(function(s,i){return '<button type="button" aria-label="Foto '+(i+1)+' de '+slides.length+'"'+(i===0?' aria-current="true"':'')+'></button>'}).join('');
     var bts=[].slice.call(pontos.children);
-    var ir=function(i){slides[atual].classList.remove('ativo');bts[atual].removeAttribute('aria-current');atual=(i+slides.length)%slides.length;slides[atual].classList.add('ativo');bts[atual].setAttribute('aria-current','true');var r=$('slide-legenda');if(r)r.textContent=slides[atual].dataset.legenda||''};
+    var ir=function(i){slides[atual].classList.remove('ativo');bts[atual].removeAttribute('aria-current');atual=(i+slides.length)%slides.length;slides[atual].classList.add('ativo');bts[atual].setAttribute('aria-current','true');mostrarLegenda()};
+    function mostrarLegenda(){
+      var sl=slides[atual],t=$('slide-texto'),lg=$('slide-logo'),a=$('slide-legenda');if(!t)return;
+      t.textContent=sl.dataset.legenda||'';
+      var P=null,id=sl.dataset.parceiro;if(id&&window.PARCEIROS)for(var k=0;k<PARCEIROS.length;k++)if(PARCEIROS[k].id===id)P=PARCEIROS[k];
+      if(P){a.setAttribute('href','parceiro.html?p='+P.id)}else a.removeAttribute('href');
+      if(P&&P.logo){lg.className='leg-logo'+(P.cheio?' cheio':'');lg.innerHTML='<img src="'+esc(P.logo)+'" alt="Logo '+esc(P.nome)+'">';lg.hidden=false}else{lg.hidden=true;lg.innerHTML=''}
+    }
     var tocar=function(){clearInterval(timer);if(!reduzido)timer=setInterval(function(){ir(atual+1)},5500)};
     bts.forEach(function(b,i){b.addEventListener('click',function(){ir(i);tocar()})});
     tocar();

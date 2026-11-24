@@ -505,3 +505,13 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 .faixa-item .fl:not(.cheio):not(.sigla),.pp-mini-card .fl:not(.cheio):not(.sigla){padding:6px}
 .faixa-item .fl img,.foto-item .fl img,.pp-mini-card .fl img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
 .faixa-item .fl.cheio img,.foto-item .fl.cheio img,.pp-mini-card .fl.cheio img{object-fit:cover}
+
+/* v5.5 — logo do parceiro na legenda do carrossel */
+.legenda{display:inline-flex;align-items:center;gap:18px;text-decoration:none}
+a.legenda[href]:hover #slide-texto{text-decoration:underline;text-underline-offset:6px}
+.leg-logo{width:112px;height:84px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;flex:none;overflow:hidden;box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.leg-logo.cheio{padding:0}
+.leg-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.leg-logo.cheio img{object-fit:cover}
+.leg-logo[hidden]{display:none}
+@media (max-width:760px){.legenda{gap:12px}.leg-logo{width:76px;height:58px;border-radius:12px;padding:5px}}
