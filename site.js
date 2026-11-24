@@ -39,6 +39,7 @@
     var h;
     if(p.whats)h='<a class="btn btn-folha" href="https://wa.me/'+p.whats+MSG+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>WhatsApp</a>';
     else if(p.tel)h='<a class="btn btn-folha" href="tel:'+p.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(p.telTxt)+'</a>';
+    else if(p.site)h='<a class="btn btn-folha" href="'+esc(p.site)+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-seta"/></svg>Pedir orçamento</a>';
     else h='<a class="btn btn-folha" href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Pedir contato</a>';
     if(p.insta)h+='<a class="btn btn-linha redondo" href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener" aria-label="Instagram de '+esc(p.nome)+'"><svg class="icone"><use href="#i-insta"/></svg></a>';
     return '<div class="p-acoes">'+h+'<a class="btn btn-linha" href="parceiro.html?p='+p.id+'">Ver página<svg class="icone"><use href="#i-seta"/></svg></a></div>';
@@ -130,7 +131,7 @@
     fichas.innerHTML=PARCEIROS.map(function(p){
       var c='';
       if(p.whats)c+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/'+p.whats+'" target="_blank" rel="noopener">'+esc(p.whatsTxt)+'</a><small>WhatsApp</small></div></li>';
-      if(!p.whats&&!p.tel)c+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
+      if(!p.whats&&!p.tel&&!p.site)c+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Quero falar com '+p.nome+'. Vi no site do Agro Lampa.')+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
       if(p.tel)c+='<li><svg class="icone"><use href="#i-tel"/></svg><div><a href="tel:'+p.tel+'">'+esc(p.telTxt)+'</a><small>Telefone</small></div></li>';
       if(p.email)c+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(p.email)+'">'+esc(p.email)+'</a><small>E-mail</small></div></li>';
       if(p.insta)c+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(p.insta)+'" target="_blank" rel="noopener">@'+esc(p.insta)+'</a><small>Instagram</small></div></li>';
@@ -167,6 +168,7 @@
 
       var botaoPrincipal=P.whats?'<a class="btn btn-ouro" href="'+zapLink+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Chamar no WhatsApp</a>':
         P.tel?'<a class="btn btn-ouro" href="tel:'+P.tel+'"><svg class="icone"><use href="#i-tel"/></svg>Ligar '+esc(P.telTxt)+'</a>':
+        P.site?'<a class="btn btn-ouro" href="'+esc(P.site)+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-seta"/></svg>Pedir orçamento</a>':
         '<a class="btn btn-ouro" href="'+pedir+'" target="_blank" rel="noopener"><svg class="icone"><use href="#i-zap"/></svg>Pedir contato</a>';
 
       var contatos='';
@@ -175,7 +177,7 @@
       if(P.email)contatos+='<li><svg class="icone"><use href="#i-mail"/></svg><div><a href="mailto:'+esc(P.email)+'">'+esc(P.email)+'</a><small>E-mail</small></div></li>';
       if(P.site)contatos+='<li><svg class="icone"><use href="#i-seta"/></svg><div><a href="'+esc(P.site)+'" target="_blank" rel="noopener">'+esc(P.site.replace(/^https?:\/\//,''))+'</a><small>Site</small></div></li>';
       if(P.insta)contatos+='<li><svg class="icone"><use href="#i-insta"/></svg><div><a href="https://instagram.com/'+esc(P.insta)+'" target="_blank" rel="noopener">@'+esc(P.insta)+'</a><small>Instagram</small></div></li>';
-      if(!P.whats&&!P.tel)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+pedir+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
+      if(!P.whats&&!P.tel&&!P.site)contatos+='<li><svg class="icone"><use href="#i-zap"/></svg><div><a href="'+pedir+'" target="_blank" rel="noopener">Pedir contato pelo Agro Lampa</a><small>Contato direto em breve</small></div></li>';
 
       var servicos='<ul class="pp-servicos">'+P.servicos.map(function(x){return '<li><span class="pp-ok"><svg class="icone"><use href="#i-ok"/></svg></span>'+esc(x)+'</li>'}).join('')+'</ul>';
 
