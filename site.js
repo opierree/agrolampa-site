@@ -64,6 +64,50 @@
     trilha.innerHTML=seq.map(function(p,i){return item(p,i>=faixa.length)}).join('')+seq.map(function(p){return item(p,true)}).join('');
   }
 
+  /* Barra de pesquisa no topo (todas as páginas) */
+  (function(){
+    var topo=document.querySelector('.topo .wrap');if(!topo||!window.PARCEIROS)return;
+    var LUPA='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+    var box=document.createElement('div');box.className='busca';
+    box.innerHTML='<button class="busca-abrir" type="button" aria-label="Pesquisar" aria-expanded="false">'+LUPA+'</button>'+
+      '<div class="busca-campo" role="search"><span class="busca-ico">'+LUPA+'</span>'+
+      '<input type="search" id="busca-input" placeholder="Pesquisar empresa ou serviço" autocomplete="off" aria-label="Pesquisar empresa ou serviço" aria-controls="busca-lista" aria-expanded="false">'+
+      '<ul class="busca-lista" id="busca-lista" role="listbox" hidden></ul></div>';
+    var cta=topo.querySelector('.btn');topo.insertBefore(box,cta);
+    var inp=box.querySelector('input'),lista=box.querySelector('.busca-lista'),abrir=box.querySelector('.busca-abrir'),sel=-1,itens=[];
+    function norm(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+    var palavras=function(t){return ' '+norm(t).replace(/[^a-z0-9&]+/g,' ')};
+    var base=ordem.map(function(p){return{p:p,txt:palavras([p.nome,p.seg,p.resumo,(p.servicos||[]).join(' '),cat(p.cat).nome].join(' ')),nome:norm(p.nome)}});
+    function buscar(q){
+      q=norm(q).trim();if(!q)return[];
+      var termos=q.split(/\s+/).map(function(t){return t.length>=5?t.slice(0,-1):t}),r=[];
+      CATEGORIAS.forEach(function(c){var n=contar(c.id);if(n&&termos.every(function(t){return palavras(c.nome).indexOf(' '+t)>=0}))r.push({tipo:'cat',c:c,n:n,peso:1})});
+      base.forEach(function(b){if(termos.every(function(t){return b.txt.indexOf(' '+t)>=0}))r.push({tipo:'p',p:b.p,peso:b.nome.indexOf(q)===0?0:(b.nome.indexOf(q)>=0?1:2)})});
+      return r.sort(function(a,b){return a.peso-b.peso}).slice(0,8);
+    }
+    function desenhar(){
+      var q=inp.value;itens=buscar(q);sel=-1;
+      if(!q.trim()){lista.hidden=true;inp.setAttribute('aria-expanded','false');return}
+      lista.innerHTML=itens.length?itens.map(function(it,i){
+        if(it.tipo==='cat')return '<li role="option" id="bo-'+i+'"><a href="servicos.html#'+it.c.id+'"><span class="fl sigla"><span>'+icone(it.c.icone)+'</span></span><span><b>'+esc(it.c.nome)+'</b><small>Categoria · '+it.n+(it.n>1?' empresas':' empresa')+'</small></span></a></li>';
+        return '<li role="option" id="bo-'+i+'"><a href="parceiro.html?p='+it.p.id+'">'+miniLogo(it.p)+'<span><b>'+esc(it.p.nome)+'</b><small>'+esc(cat(it.p.cat).nome)+' · '+esc(it.p.seg)+'</small></span></a></li>';
+      }).join(''):'<li class="busca-nada">Nada encontrado para “'+esc(q)+'”. <a href="https://wa.me/5516991787430?text='+encodeURIComponent('Olá! Procuro '+q+' em São Carlos.')+'" target="_blank" rel="noopener">Peça uma indicação</a></li>';
+      lista.hidden=false;inp.setAttribute('aria-expanded','true');
+    }
+    function marcar(i){var lis=lista.querySelectorAll('[role=option]');if(!lis.length)return;sel=(i+lis.length)%lis.length;lis.forEach(function(l,k){l.classList.toggle('ativo',k===sel)});inp.setAttribute('aria-activedescendant','bo-'+sel)}
+    inp.addEventListener('input',desenhar);
+    inp.addEventListener('focus',function(){if(inp.value.trim())desenhar()});
+    inp.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'){e.preventDefault();marcar(sel+1)}
+      else if(e.key==='ArrowUp'){e.preventDefault();marcar(sel-1)}
+      else if(e.key==='Enter'){var lis=lista.querySelectorAll('[role=option] a');var a=lis[sel>=0?sel:0];if(a){e.preventDefault();location.href=a.getAttribute('href')}}
+      else if(e.key==='Escape'){lista.hidden=true;inp.blur();fechar()}
+    });
+    function fechar(){box.classList.remove('aberta');abrir.setAttribute('aria-expanded','false')}
+    abrir.addEventListener('click',function(){var on=!box.classList.contains('aberta');box.classList.toggle('aberta',on);abrir.setAttribute('aria-expanded',on?'true':'false');if(on)setTimeout(function(){inp.focus()},30)});
+    document.addEventListener('click',function(e){if(!box.contains(e.target)){lista.hidden=true;fechar()}});
+  })();
+
   /* Abertura em carrossel (página inicial) */
   /* Carrossel: acrescenta um slide para cada parceiro com logo que ainda não tenha foto fixa */
   var abertura=document.querySelector('.abertura');
@@ -92,6 +136,7 @@
     }
     var tocar=function(){clearInterval(timer);if(!reduzido)timer=setInterval(function(){ir(atual+1)},5500)};
     bts.forEach(function(b,i){b.addEventListener('click',function(){ir(i);tocar()})});
+    mostrarLegenda();
     tocar();
   }
 
