@@ -597,3 +597,8 @@ html{scroll-padding-top:104px}
 /* v6.4 — logo encostado no canto inferior esquerdo da capa */
 .parceiro .p-logo{margin:-116px 0 0 0;border-radius:0 20px 0 0;box-shadow:none}
 @media (max-width:620px){.parceiro .p-logo{margin:-92px 0 0 0;border-radius:0 16px 0 0}}
+.leg-logo.sigla{background:var(--ouro-claro);color:var(--tinta)}
+.leg-logo.sigla span{font:700 clamp(22px,2.4vw,34px)/1 var(--display);letter-spacing:-.02em}
+@media (max-width:899px){.leg-logo.sigla span{font-size:20px}}
+.leg-logo.sigla span{text-shadow:none}
+@media (max-width:760px){.pontos button{width:15px}.pontos button::before{width:9px}.pontos button[aria-current="true"]{width:24px}.pontos button[aria-current="true"]::before{width:20px}}
