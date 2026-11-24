@@ -125,7 +125,7 @@ var PARCEIROS = [
    nome:"Daniel Fretes", cat:"transporte", plano:"parceiro",
    seg:"Fretes e carretos", resumo:"Fretes e carretos em São Carlos, com atendimento 24 horas. Jardim Jockei Club A.",
    servicos:["Fretes","Carretos"],
-   tom:"#5a5a3a", foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Fiat_Strada_double_cab.jpg/1280px-Fiat_Strada_double_cab.jpg", fotoAlt:"Fiat Strada branca",
+   tom:"#5a5a3a", foto:"img/parceiros/daniel-frota.jpg", fotoAlt:"Strada e van da Daniel Fretes", galeria:["img/parceiros/daniel-frota-vertical.jpg"],
    whats:"5516992835668", whatsTxt:"(16) 99283-5668"},
   {id:"west", nome:"West Transportes", cat:"transporte", plano:"parceiro", desde:2004,
    seg:"Fretamento e transporte executivo", resumo:"West Transportes e Fretamento, de São Carlos, no mercado desde 2004. Transporte corporativo, fretamento, turismo, transfer de aeroporto e eventos em todo o estado de São Paulo, com foco no interior. Cadastrada no Cadastur e na ARTESP.",
