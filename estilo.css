@@ -594,3 +594,6 @@ html{scroll-padding-top:104px}
 /* v6.3 — logo dentro da capa, no canto inferior esquerdo */
 .parceiro .p-logo{margin:-140px 0 24px 24px;box-shadow:0 10px 24px -10px rgba(0,0,0,.45)}
 @media (max-width:620px){.parceiro .p-logo{margin:-108px 0 16px 16px}}
+/* v6.4 — logo encostado no canto inferior esquerdo da capa */
+.parceiro .p-logo{margin:-116px 0 0 0;border-radius:0 20px 0 0;box-shadow:none}
+@media (max-width:620px){.parceiro .p-logo{margin:-92px 0 0 0;border-radius:0 16px 0 0}}
