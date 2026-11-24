@@ -132,7 +132,7 @@
       t.textContent=sl.dataset.legenda||'';
       var P=null,id=sl.dataset.parceiro;if(id&&window.PARCEIROS)for(var k=0;k<PARCEIROS.length;k++)if(PARCEIROS[k].id===id)P=PARCEIROS[k];
       if(P){a.setAttribute('href','parceiro.html?p='+P.id)}else a.removeAttribute('href');
-      if(P&&P.logo){lg.className='leg-logo'+(P.cheio?' cheio':'');lg.innerHTML='<img src="'+esc(P.logo)+'" alt="Logo '+esc(P.nome)+'">';lg.hidden=false}else if(P){lg.className='leg-logo sigla';lg.innerHTML='<span>'+esc(sigla(P))+'</span>';lg.hidden=false}else{lg.hidden=true;lg.innerHTML=''}
+      if(P&&P.logo){lg.className='leg-logo'+(P.cheio?' cheio':'');lg.innerHTML='<img src="'+esc(P.logo)+'" alt="Logo '+esc(P.nome)+'">';lg.hidden=false}else{lg.hidden=true;lg.innerHTML=''}
     }
     var tocar=function(){clearInterval(timer);if(!reduzido)timer=setInterval(function(){ir(atual+1)},5500)};
     bts.forEach(function(b,i){b.addEventListener('click',function(){ir(i);tocar()})});
