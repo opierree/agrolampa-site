@@ -591,3 +591,6 @@ html{scroll-padding-top:104px}
 .pp-logo.cheio{padding:0}
 @media (max-width:620px){.parceiro .p-logo{width:124px;height:92px;margin:-56px 0 0 20px;border-radius:16px;padding:8px}.parceiro .p-logo.cheio{padding:0}}
 @media (max-width:600px){.pp-logo{width:116px}}
+/* v6.3 — logo dentro da capa, no canto inferior esquerdo */
+.parceiro .p-logo{margin:-140px 0 24px 24px;box-shadow:0 10px 24px -10px rgba(0,0,0,.45)}
+@media (max-width:620px){.parceiro .p-logo{margin:-108px 0 16px 16px}}
