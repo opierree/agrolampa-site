@@ -143,7 +143,9 @@
   /* Grade de categorias (página inicial) */
   var gcat=$('grade-categorias');
   if(gcat){
-    var lc=CATEGORIAS.map(function(c,i){return{c:c,n:contar(c.id),i:i}}).sort(function(a,b){return ((b.n>0)-(a.n>0))||(a.i-b.i)}).slice(0,11).map(function(x){return x.c});
+    var AGRO=['agropecuaria','maquinas','rurais','transporte'];/* categorias do agro vêm primeiro */
+    var pa=function(id){var k=AGRO.indexOf(id);return k<0?99:k};
+    var lc=CATEGORIAS.map(function(c,i){return{c:c,n:contar(c.id),i:i}}).sort(function(a,b){return (pa(a.c.id)-pa(b.c.id))||((b.n>0)-(a.n>0))||(a.i-b.i)}).map(function(x){return x.c});
     gcat.innerHTML=lc.map(function(c){var n=contar(c.id);return '<a class="cat-tile" href="servicos.html#'+c.id+'">'+icone(c.icone)+'<b>'+esc(c.nome)+'</b><small>'+(n?n+(n>1?' empresas':' empresa'):'Em breve')+'</small></a>'}).join('')+
       '<a class="cat-tile ver-todos" href="servicos.html">'+icone('mais')+'<b>Ver todos</b><small>'+PARCEIROS.length+' empresas</small></a>';
   }

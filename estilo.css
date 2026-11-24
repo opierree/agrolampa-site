@@ -602,3 +602,8 @@ html{scroll-padding-top:104px}
 @media (max-width:899px){.leg-logo.sigla span{font-size:20px}}
 .leg-logo.sigla span{text-shadow:none}
 @media (max-width:760px){.pontos button{width:15px}.pontos button::before{width:9px}.pontos button[aria-current="true"]{width:24px}.pontos button[aria-current="true"]::before{width:20px}}
+/* v6.5 — "Ver todos" como barra larga abaixo das 12 categorias */
+.cat-tile.ver-todos{grid-column:1/-1;flex-direction:row;min-height:0;padding:18px 24px;gap:14px}
+.cat-tile.ver-todos .cat-ico{width:40px;height:40px}
+.cat-tile.ver-todos small{margin-left:4px}
+.cat-tile.ver-todos:hover{transform:translateY(-2px)}
