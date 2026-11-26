@@ -125,7 +125,7 @@ var PARCEIROS = [
    nome:"SB Gás Revenda", cat:"gas", plano:"parceiro",
    seg:"Revenda de gás de cozinha", resumo:"Revenda de gás de cozinha (GLP) no Jockey Clube, em São Carlos. Atende de segunda a segunda, das 8h às 21h. Faça seu pedido pelo WhatsApp.",
    servicos:["Gás de cozinha (GLP)","Pedidos pelo WhatsApp","Segunda a segunda"],
-   logo:"img/parceiros/logo-sbgas.jpg", foto:"https://images.unsplash.com/photo-1771077800818-56c3b616cca5?fm=jpg&q=80&w=1400&auto=format&fit=crop", fotoAlt:"Botijões de gás", tom:"#1f3a7a",
+   logo:"img/parceiros/logo-sbgas.jpg", foto:"https://upload.wikimedia.org/wikipedia/commons/2/2f/Botij%C3%A3o_de_g%C3%A1s.jpg", fotoAlt:"Botijão de gás de cozinha", tom:"#1f3a7a",
    whats:"5516993409597", whatsTxt:"(16) 99340-9597", site:"https://www.facebook.com/p/SB-G%C3%81S-Revenda-61574834645581/"},
   {id:"daniel", endereco:"R. Rio Araguaia – Jardim Jockei Club A, São Carlos/SP", placeId:"ChIJA4Ji4JNxuJQRcXcGD7aLDYM", horario:["Atende 24 horas, todos os dias"],
    nome:"Daniel Transportes", cat:"transporte", plano:"parceiro",
